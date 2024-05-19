@@ -50,10 +50,9 @@
             // 
             panel3.BackColor = Color.FromArgb(69, 80, 108);
             panel3.Controls.Add(dbname);
-            panel3.Location = new Point(414, 420);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(290, 252);
             panel3.Name = "panel3";
-            panel3.Size = new Size(601, 82);
+            panel3.Size = new Size(421, 49);
             panel3.TabIndex = 15;
             // 
             // dbname
@@ -62,21 +61,19 @@
             dbname.BorderStyle = BorderStyle.None;
             dbname.Font = new Font("Montserrat", 18F, FontStyle.Regular, GraphicsUnit.Point);
             dbname.ForeColor = Color.FromArgb(237, 242, 244);
-            dbname.Location = new Point(11, 15);
-            dbname.Margin = new Padding(4, 5, 4, 5);
+            dbname.Location = new Point(8, 9);
             dbname.Name = "dbname";
             dbname.PlaceholderText = "Database Name";
-            dbname.Size = new Size(579, 44);
+            dbname.Size = new Size(405, 30);
             dbname.TabIndex = 5;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(69, 80, 108);
             panel2.Controls.Add(servername);
-            panel2.Location = new Point(414, 310);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(290, 186);
             panel2.Name = "panel2";
-            panel2.Size = new Size(601, 82);
+            panel2.Size = new Size(421, 49);
             panel2.TabIndex = 16;
             // 
             // servername
@@ -85,11 +82,10 @@
             servername.BorderStyle = BorderStyle.None;
             servername.Font = new Font("Montserrat", 19F, FontStyle.Regular, GraphicsUnit.Point);
             servername.ForeColor = Color.FromArgb(237, 242, 244);
-            servername.Location = new Point(11, 13);
-            servername.Margin = new Padding(4, 5, 4, 5);
+            servername.Location = new Point(8, 8);
             servername.Name = "servername";
             servername.PlaceholderText = "Server Name/IP";
-            servername.Size = new Size(579, 47);
+            servername.Size = new Size(405, 31);
             servername.TabIndex = 5;
             // 
             // connect
@@ -98,10 +94,9 @@
             connect.FlatStyle = FlatStyle.Flat;
             connect.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             connect.ForeColor = Color.FromArgb(43, 45, 66);
-            connect.Location = new Point(530, 830);
-            connect.Margin = new Padding(4, 5, 4, 5);
+            connect.Location = new Point(371, 488);
             connect.Name = "connect";
-            connect.Size = new Size(351, 85);
+            connect.Size = new Size(246, 61);
             connect.TabIndex = 14;
             connect.Text = "Connect";
             connect.UseVisualStyleBackColor = false;
@@ -110,24 +105,22 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Montserrat SemiBold", 24.7499962F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(237, 242, 244);
-            label2.Location = new Point(393, 157);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(287, 100);
             label2.Name = "label2";
-            label2.Size = new Size(620, 58);
+            label2.Size = new Size(416, 46);
             label2.TabIndex = 13;
             label2.Text = "CONNECT THE SERVER";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 45F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Montserrat", 45F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(237, 242, 244);
-            label1.Location = new Point(17, 15);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(-2, -4);
             label1.Name = "label1";
-            label1.Size = new Size(247, 102);
+            label1.Size = new Size(176, 83);
             label1.TabIndex = 12;
             label1.Text = "KIET";
             // 
@@ -138,10 +131,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.FromArgb(237, 242, 244);
-            button2.Location = new Point(1374, 20);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Location = new Point(962, 12);
             button2.Name = "button2";
-            button2.Size = new Size(51, 55);
+            button2.Size = new Size(36, 33);
             button2.TabIndex = 18;
             button2.TabStop = false;
             button2.Text = "X";
@@ -152,10 +144,9 @@
             // 
             panel1.BackColor = Color.FromArgb(69, 80, 108);
             panel1.Controls.Add(password);
-            panel1.Location = new Point(414, 647);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Location = new Point(290, 388);
             panel1.Name = "panel1";
-            panel1.Size = new Size(601, 82);
+            panel1.Size = new Size(421, 49);
             panel1.TabIndex = 19;
             // 
             // password
@@ -164,22 +155,20 @@
             password.BorderStyle = BorderStyle.None;
             password.Font = new Font("Montserrat", 18F, FontStyle.Regular, GraphicsUnit.Point);
             password.ForeColor = Color.FromArgb(237, 242, 244);
-            password.Location = new Point(11, 15);
-            password.Margin = new Padding(4, 5, 4, 5);
+            password.Location = new Point(8, 9);
             password.Name = "password";
             password.PasswordChar = '*';
             password.PlaceholderText = "Password";
-            password.Size = new Size(579, 44);
+            password.Size = new Size(405, 30);
             password.TabIndex = 5;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(69, 80, 108);
             panel4.Controls.Add(userid);
-            panel4.Location = new Point(414, 537);
-            panel4.Margin = new Padding(4, 5, 4, 5);
+            panel4.Location = new Point(290, 322);
             panel4.Name = "panel4";
-            panel4.Size = new Size(601, 82);
+            panel4.Size = new Size(421, 49);
             panel4.TabIndex = 20;
             // 
             // userid
@@ -188,19 +177,18 @@
             userid.BorderStyle = BorderStyle.None;
             userid.Font = new Font("Montserrat", 19F, FontStyle.Regular, GraphicsUnit.Point);
             userid.ForeColor = Color.FromArgb(237, 242, 244);
-            userid.Location = new Point(11, 13);
-            userid.Margin = new Padding(4, 5, 4, 5);
+            userid.Location = new Point(8, 8);
             userid.Name = "userid";
             userid.PlaceholderText = "User ID";
-            userid.Size = new Size(579, 47);
+            userid.Size = new Size(405, 31);
             userid.TabIndex = 5;
             // 
             // ServerConnection
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(1443, 1087);
+            ClientSize = new Size(1010, 637);
             Controls.Add(panel1);
             Controls.Add(panel4);
             Controls.Add(button2);
@@ -209,7 +197,7 @@
             Controls.Add(connect);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ServerConnection";
             Text = "ServerConnection";
             Load += ServerConnection_Load;

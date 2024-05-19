@@ -130,7 +130,7 @@
             panel1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(315, 451);
+            panel1.Size = new Size(315, 679);
             panel1.TabIndex = 5;
             panel1.Paint += panel1_Paint;
             // 
@@ -140,7 +140,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(10, 10, 10, 10);
+            pictureBox1.Padding = new Padding(10);
             pictureBox1.Size = new Size(315, 112);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
@@ -170,7 +170,7 @@
             label1.Location = new Point(0, -19);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Padding = new Padding(4, 4, 4, 4);
+            label1.Padding = new Padding(4);
             label1.Size = new Size(187, 81);
             label1.TabIndex = 2;
             label1.Text = "KIET";
@@ -215,7 +215,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(315, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(481, 45);
+            panel2.Size = new Size(879, 45);
             panel2.TabIndex = 7;
             // 
             // button6
@@ -235,10 +235,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(796, 451);
+            ClientSize = new Size(1194, 679);
             Controls.Add(panel2);
             Controls.Add(showpanel);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ProgramManagerLMS";
             Text = "ProgramManagerLMS";
             Load += ProgramManagerLMS_Load;

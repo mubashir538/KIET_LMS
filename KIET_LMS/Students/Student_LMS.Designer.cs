@@ -62,9 +62,8 @@
             panel1.Dock = DockStyle.Left;
             panel1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(450, 1050);
+            panel1.Size = new Size(315, 637);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -79,10 +78,10 @@
             classSchedule.ForeColor = Color.FromArgb(237, 242, 244);
             classSchedule.Image = (Image)resources.GetObject("classSchedule.Image");
             classSchedule.ImageAlign = ContentAlignment.MiddleLeft;
-            classSchedule.Location = new Point(13, 638);
+            classSchedule.Location = new Point(9, 383);
             classSchedule.Margin = new Padding(0);
             classSchedule.Name = "classSchedule";
-            classSchedule.Size = new Size(421, 105);
+            classSchedule.Size = new Size(295, 63);
             classSchedule.TabIndex = 4;
             classSchedule.Text = "    Class Schedule";
             classSchedule.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -101,10 +100,10 @@
             selfRegistration.ForeColor = Color.FromArgb(237, 242, 244);
             selfRegistration.Image = (Image)resources.GetObject("selfRegistration.Image");
             selfRegistration.ImageAlign = ContentAlignment.MiddleLeft;
-            selfRegistration.Location = new Point(13, 523);
+            selfRegistration.Location = new Point(9, 314);
             selfRegistration.Margin = new Padding(0);
             selfRegistration.Name = "selfRegistration";
-            selfRegistration.Size = new Size(456, 105);
+            selfRegistration.Size = new Size(319, 63);
             selfRegistration.TabIndex = 4;
             selfRegistration.Text = "    Self Registration";
             selfRegistration.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -123,10 +122,10 @@
             testResults.ForeColor = Color.FromArgb(237, 242, 244);
             testResults.Image = (Image)resources.GetObject("testResults.Image");
             testResults.ImageAlign = ContentAlignment.MiddleLeft;
-            testResults.Location = new Point(31, 418);
+            testResults.Location = new Point(22, 251);
             testResults.Margin = new Padding(0);
             testResults.Name = "testResults";
-            testResults.Size = new Size(399, 105);
+            testResults.Size = new Size(279, 63);
             testResults.TabIndex = 4;
             testResults.Text = "    Test Results";
             testResults.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -145,10 +144,10 @@
             currentCourses.ForeColor = Color.FromArgb(237, 242, 244);
             currentCourses.Image = (Image)resources.GetObject("currentCourses.Image");
             currentCourses.ImageAlign = ContentAlignment.MiddleLeft;
-            currentCourses.Location = new Point(31, 303);
+            currentCourses.Location = new Point(22, 182);
             currentCourses.Margin = new Padding(0);
             currentCourses.Name = "currentCourses";
-            currentCourses.Size = new Size(431, 105);
+            currentCourses.Size = new Size(302, 63);
             currentCourses.TabIndex = 4;
             currentCourses.Text = "    Current Courses";
             currentCourses.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -161,10 +160,9 @@
             pictureBox1.Dock = DockStyle.Top;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(14, 17, 14, 17);
-            pictureBox1.Size = new Size(450, 187);
+            pictureBox1.Padding = new Padding(10, 10, 10, 10);
+            pictureBox1.Size = new Size(315, 112);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -177,10 +175,10 @@
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(237, 242, 244);
-            label2.Location = new Point(31, 122);
+            label2.Location = new Point(22, 73);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
-            label2.Size = new Size(531, 39);
+            label2.Size = new Size(380, 29);
             label2.TabIndex = 3;
             label2.Text = "The redesigned Learning Platform";
             // 
@@ -190,11 +188,11 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 48F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(237, 242, 244);
-            label1.Location = new Point(0, -32);
+            label1.Location = new Point(0, -19);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Padding = new Padding(6, 7, 6, 7);
-            label1.Size = new Size(275, 122);
+            label1.Padding = new Padding(4, 4, 4, 4);
+            label1.Size = new Size(187, 81);
             label1.TabIndex = 2;
             label1.Text = "KIET";
             // 
@@ -206,10 +204,9 @@
             button4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = Color.FromArgb(237, 242, 244);
             button4.Image = Properties.Resources.Icon_awesome_arrow_left;
-            button4.Location = new Point(1131, 10);
-            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Location = new Point(792, 6);
             button4.Name = "button4";
-            button4.Size = new Size(51, 55);
+            button4.Size = new Size(36, 33);
             button4.TabIndex = 4;
             button4.TabStop = false;
             button4.UseVisualStyleBackColor = false;
@@ -221,10 +218,9 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button5.ForeColor = Color.FromArgb(237, 242, 244);
-            button5.Location = new Point(1191, 10);
-            button5.Margin = new Padding(4, 5, 4, 5);
+            button5.Location = new Point(834, 6);
             button5.Name = "button5";
-            button5.Size = new Size(51, 55);
+            button5.Size = new Size(36, 33);
             button5.TabIndex = 5;
             button5.TabStop = false;
             button5.Text = "X";
@@ -239,10 +235,9 @@
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button5);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(450, 0);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(315, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1256, 75);
+            panel2.Size = new Size(879, 45);
             panel2.TabIndex = 8;
             // 
             // button1
@@ -251,10 +246,9 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.Icon_metro_switch;
-            button1.Location = new Point(1063, 10);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(744, 6);
             button1.Name = "button1";
-            button1.Size = new Size(60, 55);
+            button1.Size = new Size(42, 33);
             button1.TabIndex = 11;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -262,31 +256,29 @@
             // showpanel
             // 
             showpanel.BackColor = Color.FromArgb(43, 45, 66);
-            showpanel.Location = new Point(4, 75);
-            showpanel.Margin = new Padding(4, 5, 4, 5);
+            showpanel.Location = new Point(3, 45);
             showpanel.Name = "showpanel";
-            showpanel.Size = new Size(1256, 1168);
+            showpanel.Size = new Size(879, 701);
             showpanel.TabIndex = 9;
             // 
             // show
             // 
             show.BackColor = Color.FromArgb(43, 45, 66);
             show.Dock = DockStyle.Fill;
-            show.Location = new Point(450, 75);
-            show.Margin = new Padding(4, 5, 4, 5);
+            show.Location = new Point(315, 45);
             show.Name = "show";
-            show.Size = new Size(1256, 975);
+            show.Size = new Size(879, 592);
             show.TabIndex = 9;
             // 
             // Student_LMS
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1706, 1106);
+            ClientSize = new Size(1194, 637);
             Controls.Add(show);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Student_LMS";
             Text = "  ";
             Load += Student_LMS_Load;

@@ -49,9 +49,8 @@
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1256, 105);
+            panel2.Size = new Size(879, 63);
             panel2.TabIndex = 0;
             panel2.Paint += panel2_Paint;
             // 
@@ -60,10 +59,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat", 20F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(43, 45, 66);
-            label1.Location = new Point(411, 15);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(288, 9);
             label1.Name = "label1";
-            label1.Size = new Size(481, 55);
+            label1.Size = new Size(334, 37);
             label1.TabIndex = 0;
             label1.Text = "C l a s s   S c h e d u l e";
             // 
@@ -72,11 +70,10 @@
             panel3.BackColor = Color.FromArgb(237, 242, 244);
             panel3.Controls.Add(flowLayoutPanel1);
             panel3.Controls.Add(panel4);
-            panel3.Location = new Point(31, 200);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(22, 120);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(4, 5, 4, 5);
-            panel3.Size = new Size(1190, 878);
+            panel3.Padding = new Padding(3, 3, 3, 3);
+            panel3.Size = new Size(833, 527);
             panel3.TabIndex = 13;
             // 
             // flowLayoutPanel1
@@ -84,10 +81,10 @@
             flowLayoutPanel1.AllowDrop = true;
             flowLayoutPanel1.BackColor = Color.FromArgb(43, 45, 66);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(4, 97);
-            flowLayoutPanel1.Margin = new Padding(0, 5, 0, 0);
+            flowLayoutPanel1.Location = new Point(3, 60);
+            flowLayoutPanel1.Margin = new Padding(0, 3, 0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1182, 776);
+            flowLayoutPanel1.Size = new Size(827, 464);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // panel4
@@ -100,10 +97,10 @@
             panel4.Controls.Add(label2);
             panel4.Controls.Add(label3);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(4, 5);
-            panel4.Margin = new Padding(0, 0, 0, 5);
+            panel4.Location = new Point(3, 3);
+            panel4.Margin = new Padding(0, 0, 0, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1182, 92);
+            panel4.Size = new Size(827, 57);
             panel4.TabIndex = 0;
             // 
             // label6
@@ -111,10 +108,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Montserrat", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(237, 242, 244);
-            label6.Location = new Point(1054, 25);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(738, 15);
             label6.Name = "label6";
-            label6.Size = new Size(111, 41);
+            label6.Size = new Size(74, 27);
             label6.TabIndex = 0;
             label6.Text = "Room";
             // 
@@ -123,10 +119,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Montserrat", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(237, 242, 244);
-            label5.Location = new Point(913, 25);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(639, 15);
             label5.Name = "label5";
-            label5.Size = new Size(96, 41);
+            label5.Size = new Size(64, 27);
             label5.TabIndex = 0;
             label5.Text = "Time";
             // 
@@ -135,10 +130,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Montserrat", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(237, 242, 244);
-            label4.Location = new Point(781, 25);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(547, 15);
             label4.Name = "label4";
-            label4.Size = new Size(80, 41);
+            label4.Size = new Size(53, 27);
             label4.TabIndex = 0;
             label4.Text = "Day";
             // 
@@ -147,10 +141,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Montserrat", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(237, 242, 244);
-            label2.Location = new Point(354, 25);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(248, 15);
             label2.Name = "label2";
-            label2.Size = new Size(128, 41);
+            label2.Size = new Size(87, 27);
             label2.TabIndex = 0;
             label2.Text = "Course";
             // 
@@ -159,22 +152,21 @@
             label3.AutoSize = true;
             label3.Font = new Font("Montserrat", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(237, 242, 244);
-            label3.Location = new Point(44, 25);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(31, 15);
             label3.Name = "label3";
-            label3.Size = new Size(75, 41);
+            label3.Size = new Size(51, 27);
             label3.TabIndex = 0;
             label3.Text = "CID";
             // 
             // StudentsClassSchedule
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(1256, 1106);
+            ClientSize = new Size(879, 637);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "StudentsClassSchedule";
             Text = "Form11";
             Load += StudentsClassSchedule_Load;

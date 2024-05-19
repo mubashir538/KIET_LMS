@@ -56,10 +56,9 @@
             fac.AutoSize = true;
             fac.Font = new Font("Montserrat", 14F, FontStyle.Regular, GraphicsUnit.Point);
             fac.ForeColor = Color.FromArgb(237, 242, 244);
-            fac.Location = new Point(63, 485);
-            fac.Margin = new Padding(4, 0, 4, 0);
+            fac.Location = new Point(44, 291);
             fac.Name = "fac";
-            fac.Size = new Size(183, 39);
+            fac.Size = new Size(125, 26);
             fac.TabIndex = 21;
             fac.Text = "Faculty: 3.81";
             // 
@@ -68,10 +67,9 @@
             pos.AutoSize = true;
             pos.Font = new Font("Montserrat", 14F, FontStyle.Regular, GraphicsUnit.Point);
             pos.ForeColor = Color.FromArgb(237, 242, 244);
-            pos.Location = new Point(63, 435);
-            pos.Margin = new Padding(4, 0, 4, 0);
+            pos.Location = new Point(44, 261);
             pos.Name = "pos";
-            pos.Size = new Size(173, 39);
+            pos.Size = new Size(118, 26);
             pos.TabIndex = 22;
             pos.Text = "Position: 19";
             // 
@@ -80,10 +78,9 @@
             tid.AutoSize = true;
             tid.Font = new Font("Montserrat", 14F, FontStyle.Regular, GraphicsUnit.Point);
             tid.ForeColor = Color.FromArgb(237, 242, 244);
-            tid.Location = new Point(63, 385);
-            tid.Margin = new Padding(4, 0, 4, 0);
+            tid.Location = new Point(44, 231);
             tid.Name = "tid";
-            tid.Size = new Size(264, 39);
+            tid.Size = new Size(182, 26);
             tid.TabIndex = 23;
             tid.Text = "Teacher ID: 65097";
             // 
@@ -92,10 +89,9 @@
             name.AutoSize = true;
             name.Font = new Font("Montserrat", 14F, FontStyle.Regular, GraphicsUnit.Point);
             name.ForeColor = Color.FromArgb(237, 242, 244);
-            name.Location = new Point(63, 335);
-            name.Margin = new Padding(4, 0, 4, 0);
+            name.Location = new Point(44, 201);
             name.Name = "name";
-            name.Size = new Size(363, 39);
+            name.Size = new Size(244, 26);
             name.TabIndex = 24;
             name.Text = "Name: Mubashir Ahmed";
             // 
@@ -104,10 +100,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(235, 139, 56);
-            label4.Location = new Point(63, 255);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(44, 153);
             label4.Name = "label4";
-            label4.Size = new Size(333, 37);
+            label4.Size = new Size(229, 25);
             label4.TabIndex = 20;
             label4.Text = "Personal Information";
             // 
@@ -116,10 +111,9 @@
             dept.AutoSize = true;
             dept.Font = new Font("Montserrat", 14F, FontStyle.Regular, GraphicsUnit.Point);
             dept.ForeColor = Color.FromArgb(237, 242, 244);
-            dept.Location = new Point(63, 535);
-            dept.Margin = new Padding(4, 0, 4, 0);
+            dept.Location = new Point(44, 321);
             dept.Name = "dept";
-            dept.Size = new Size(255, 39);
+            dept.Size = new Size(174, 26);
             dept.TabIndex = 21;
             dept.Text = "Department: 3.81";
             // 
@@ -128,19 +122,17 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(235, 139, 56);
-            label3.Location = new Point(63, 642);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(44, 385);
             label3.Name = "label3";
-            label3.Size = new Size(308, 37);
+            label3.Size = new Size(211, 25);
             label3.TabIndex = 20;
             label3.Text = "Course Information";
             // 
             // tpic
             // 
-            tpic.Location = new Point(937, 298);
-            tpic.Margin = new Padding(4, 5, 4, 5);
+            tpic.Location = new Point(656, 179);
             tpic.Name = "tpic";
-            tpic.Size = new Size(263, 315);
+            tpic.Size = new Size(184, 189);
             tpic.TabIndex = 25;
             tpic.TabStop = false;
             // 
@@ -149,11 +141,11 @@
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(63, 720);
-            flowLayoutPanel1.Margin = new Padding(7, 0, 7, 0);
+            flowLayoutPanel1.Location = new Point(44, 432);
+            flowLayoutPanel1.Margin = new Padding(5, 0, 5, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(3, 3, 3, 3);
-            flowLayoutPanel1.Size = new Size(1137, 385);
+            flowLayoutPanel1.Padding = new Padding(2, 2, 2, 2);
+            flowLayoutPanel1.Size = new Size(796, 231);
             flowLayoutPanel1.TabIndex = 26;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -164,10 +156,9 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = Color.FromArgb(237, 242, 244);
-            button4.Location = new Point(1131, 10);
-            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Location = new Point(792, 6);
             button4.Name = "button4";
-            button4.Size = new Size(51, 55);
+            button4.Size = new Size(36, 33);
             button4.TabIndex = 4;
             button4.TabStop = false;
             button4.UseVisualStyleBackColor = false;
@@ -179,10 +170,9 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button5.ForeColor = Color.FromArgb(237, 242, 244);
-            button5.Location = new Point(1191, 10);
-            button5.Margin = new Padding(4, 5, 4, 5);
+            button5.Location = new Point(834, 6);
             button5.Name = "button5";
-            button5.Size = new Size(51, 55);
+            button5.Size = new Size(36, 33);
             button5.TabIndex = 5;
             button5.TabStop = false;
             button5.Text = "X";
@@ -198,9 +188,8 @@
             panel2.Controls.Add(button5);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1256, 75);
+            panel2.Size = new Size(879, 45);
             panel2.TabIndex = 27;
             panel2.Paint += panel2_Paint;
             // 
@@ -208,10 +197,9 @@
             // 
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(1063, 10);
-            button6.Margin = new Padding(4, 5, 4, 5);
+            button6.Location = new Point(744, 6);
             button6.Name = "button6";
-            button6.Size = new Size(60, 55);
+            button6.Size = new Size(42, 33);
             button6.TabIndex = 10;
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
@@ -219,18 +207,16 @@
             // showpanel
             // 
             showpanel.BackColor = Color.FromArgb(43, 45, 66);
-            showpanel.Location = new Point(4, 75);
-            showpanel.Margin = new Padding(4, 5, 4, 5);
+            showpanel.Location = new Point(3, 45);
             showpanel.Name = "showpanel";
-            showpanel.Size = new Size(1256, 1168);
+            showpanel.Size = new Size(879, 701);
             showpanel.TabIndex = 9;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(17, 20);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(284, 120);
+            pictureBox1.Size = new Size(199, 72);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -241,10 +227,9 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 75);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Location = new Point(0, 45);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1256, 167);
+            panel1.Size = new Size(879, 100);
             panel1.TabIndex = 28;
             // 
             // label1
@@ -252,19 +237,18 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(237, 242, 244);
-            label1.Location = new Point(556, 20);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(389, 12);
             label1.Name = "label1";
-            label1.Size = new Size(193, 69);
+            label1.Size = new Size(131, 46);
             label1.TabIndex = 1;
             label1.Text = "Home";
             // 
             // home_teacher
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(1256, 1106);
+            ClientSize = new Size(879, 637);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Controls.Add(flowLayoutPanel1);
@@ -276,7 +260,7 @@
             Controls.Add(name);
             Controls.Add(label3);
             Controls.Add(label4);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "home_teacher";
             Text = "home_teacher";
             Load += home_teacher_Load;

@@ -42,10 +42,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Montserrat", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(237, 242, 244);
-            label1.Location = new Point(564, 93);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(395, 56);
             label1.Name = "label1";
-            label1.Size = new Size(265, 55);
+            label1.Size = new Size(180, 37);
             label1.TabIndex = 0;
             label1.Text = "Welcome to";
             // 
@@ -53,10 +52,9 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(437, 203);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(306, 122);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(513, 428);
+            pictureBox1.Size = new Size(359, 257);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -68,10 +66,9 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Montserrat", 13F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = Color.FromArgb(43, 45, 66);
-            button1.Location = new Point(513, 700);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(359, 420);
             button1.Name = "button1";
-            button1.Size = new Size(361, 97);
+            button1.Size = new Size(253, 58);
             button1.TabIndex = 2;
             button1.Text = "Get Started";
             button1.UseVisualStyleBackColor = false;
@@ -84,10 +81,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.FromArgb(237, 242, 244);
-            button2.Location = new Point(1309, 20);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Location = new Point(916, 12);
             button2.Name = "button2";
-            button2.Size = new Size(51, 55);
+            button2.Size = new Size(36, 33);
             button2.TabIndex = 3;
             button2.TabStop = false;
             button2.Text = "X";
@@ -96,16 +92,16 @@
             // 
             // Welcome
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.pic;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1377, 920);
+            ClientSize = new Size(964, 552);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Welcome";
             Text = "Welcome";
             Load += Welcome_Load;

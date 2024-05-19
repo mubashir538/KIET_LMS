@@ -61,9 +61,8 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1521, 1050);
+            panel1.Size = new Size(1065, 637);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -75,10 +74,9 @@
             button3.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.FromArgb(237, 242, 244);
             button3.Image = Properties.Resources.Icon_awesome_arrow_left;
-            button3.Location = new Point(1389, 20);
-            button3.Margin = new Padding(4, 5, 4, 5);
+            button3.Location = new Point(972, 12);
             button3.Name = "button3";
-            button3.Size = new Size(51, 55);
+            button3.Size = new Size(36, 33);
             button3.TabIndex = 4;
             button3.TabStop = false;
             button3.UseVisualStyleBackColor = false;
@@ -88,10 +86,9 @@
             // 
             panel3.BackColor = Color.FromArgb(69, 80, 108);
             panel3.Controls.Add(Password);
-            panel3.Location = new Point(133, 562);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(93, 337);
             panel3.Name = "panel3";
-            panel3.Size = new Size(601, 82);
+            panel3.Size = new Size(421, 49);
             panel3.TabIndex = 10;
             // 
             // Password
@@ -100,12 +97,11 @@
             Password.BorderStyle = BorderStyle.None;
             Password.Font = new Font("Montserrat", 18F, FontStyle.Regular, GraphicsUnit.Point);
             Password.ForeColor = Color.FromArgb(237, 242, 244);
-            Password.Location = new Point(11, 15);
-            Password.Margin = new Padding(4, 5, 4, 5);
+            Password.Location = new Point(8, 9);
             Password.Name = "Password";
             Password.PasswordChar = '*';
             Password.PlaceholderText = "Password";
-            Password.Size = new Size(579, 44);
+            Password.Size = new Size(405, 30);
             Password.TabIndex = 5;
             // 
             // button2
@@ -115,10 +111,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.FromArgb(237, 242, 244);
-            button2.Location = new Point(1449, 20);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Location = new Point(1014, 12);
             button2.Name = "button2";
-            button2.Size = new Size(51, 55);
+            button2.Size = new Size(36, 33);
             button2.TabIndex = 5;
             button2.TabStop = false;
             button2.Text = "X";
@@ -130,10 +125,9 @@
             AsFaculty.AutoSize = true;
             AsFaculty.Font = new Font("Montserrat", 10F, FontStyle.Regular, GraphicsUnit.Point);
             AsFaculty.ForeColor = Color.FromArgb(237, 242, 244);
-            AsFaculty.Location = new Point(326, 797);
-            AsFaculty.Margin = new Padding(4, 0, 4, 0);
+            AsFaculty.Location = new Point(228, 478);
             AsFaculty.Name = "AsFaculty";
-            AsFaculty.Size = new Size(205, 28);
+            AsFaculty.Size = new Size(146, 20);
             AsFaculty.TabIndex = 6;
             AsFaculty.Text = "Or Login as Faculty";
             AsFaculty.Click += AsFaculty_Click;
@@ -142,10 +136,9 @@
             // 
             panel2.BackColor = Color.FromArgb(69, 80, 108);
             panel2.Controls.Add(Email);
-            panel2.Location = new Point(133, 452);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(93, 271);
             panel2.Name = "panel2";
-            panel2.Size = new Size(601, 82);
+            panel2.Size = new Size(421, 49);
             panel2.TabIndex = 11;
             // 
             // Email
@@ -154,11 +147,10 @@
             Email.BorderStyle = BorderStyle.None;
             Email.Font = new Font("Montserrat", 19F, FontStyle.Regular, GraphicsUnit.Point);
             Email.ForeColor = Color.FromArgb(237, 242, 244);
-            Email.Location = new Point(11, 13);
-            Email.Margin = new Padding(4, 5, 4, 5);
+            Email.Location = new Point(8, 8);
             Email.Name = "Email";
             Email.PlaceholderText = "Email";
-            Email.Size = new Size(579, 47);
+            Email.Size = new Size(405, 31);
             Email.TabIndex = 5;
             // 
             // Login
@@ -167,10 +159,9 @@
             Login.FlatStyle = FlatStyle.Flat;
             Login.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Login.ForeColor = Color.FromArgb(43, 45, 66);
-            Login.Location = new Point(249, 692);
-            Login.Margin = new Padding(4, 5, 4, 5);
+            Login.Location = new Point(174, 415);
             Login.Name = "Login";
-            Login.Size = new Size(351, 85);
+            Login.Size = new Size(246, 51);
             Login.TabIndex = 5;
             Login.Text = "Login";
             Login.UseVisualStyleBackColor = false;
@@ -179,12 +170,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Montserrat SemiBold", 24.7499962F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(237, 242, 244);
-            label2.Location = new Point(173, 317);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(121, 190);
             label2.Name = "label2";
-            label2.Size = new Size(553, 58);
+            label2.Size = new Size(376, 46);
             label2.TabIndex = 3;
             label2.Text = "LOGIN  AS  STUDENT";
             // 
@@ -192,10 +182,9 @@
             // 
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(855, 0);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(599, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(666, 1050);
+            pictureBox1.Size = new Size(466, 637);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -203,22 +192,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 45F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Montserrat", 45F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(237, 242, 244);
             label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(247, 102);
+            label1.Size = new Size(176, 83);
             label1.TabIndex = 1;
             label1.Text = "KIET";
             // 
             // LoginAsStudent
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1521, 1106);
+            ClientSize = new Size(1065, 637);
             Controls.Add(panel1);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginAsStudent";
             Text = "Form5";
             panel1.ResumeLayout(false);

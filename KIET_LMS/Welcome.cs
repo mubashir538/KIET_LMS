@@ -37,7 +37,7 @@ namespace KIET_LMS
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-          
+
         }
     }
 }

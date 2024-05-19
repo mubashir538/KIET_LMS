@@ -80,7 +80,7 @@
             label1.ForeColor = Color.FromArgb(237, 242, 244);
             label1.Location = new Point(21, 85);
             label1.Name = "label1";
-            label1.Size = new Size(208, 22);
+            label1.Size = new Size(209, 22);
             label1.TabIndex = 11;
             label1.Text = "Credit Hours Available: 15";
             // 
@@ -136,6 +136,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "SelfRegistration";
             Text = "SelfRegistration";
             Load += SelfRegistration_Load;

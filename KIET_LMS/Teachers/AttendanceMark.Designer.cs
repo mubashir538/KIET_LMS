@@ -42,10 +42,9 @@
             // 
             panel1.BackColor = Color.FromArgb(62, 67, 88);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(429, 32);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Location = new Point(300, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(381, 90);
+            panel1.Size = new Size(267, 54);
             panel1.TabIndex = 3;
             // 
             // label1
@@ -53,10 +52,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(237, 242, 244);
-            label1.Location = new Point(36, 20);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(25, 12);
             label1.Name = "label1";
-            label1.Size = new Size(333, 44);
+            label1.Size = new Size(220, 29);
             label1.TabIndex = 0;
             label1.Text = "Attendance Upload";
             // 
@@ -68,10 +66,9 @@
             absent.FlatStyle = FlatStyle.Flat;
             absent.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
             absent.ForeColor = Color.FromArgb(237, 242, 244);
-            absent.Location = new Point(73, 170);
-            absent.Margin = new Padding(4, 5, 4, 5);
+            absent.Location = new Point(51, 102);
             absent.Name = "absent";
-            absent.Size = new Size(300, 90);
+            absent.Size = new Size(210, 54);
             absent.TabIndex = 4;
             absent.Text = "Absent";
             absent.UseVisualStyleBackColor = false;
@@ -86,10 +83,9 @@
             present.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
             present.ForeColor = Color.FromArgb(237, 242, 244);
             present.ImageAlign = ContentAlignment.MiddleLeft;
-            present.Location = new Point(857, 170);
-            present.Margin = new Padding(4, 5, 4, 5);
+            present.Location = new Point(600, 102);
             present.Name = "present";
-            present.Size = new Size(300, 90);
+            present.Size = new Size(210, 54);
             present.TabIndex = 4;
             present.Text = " Present";
             present.UseVisualStyleBackColor = false;
@@ -98,10 +94,9 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(33, 313);
-            flowLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+            flowLayoutPanel1.Location = new Point(23, 188);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1187, 727);
+            flowLayoutPanel1.Size = new Size(831, 436);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // button1
@@ -111,10 +106,9 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Montserrat", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.FromArgb(43, 45, 66);
-            button1.Location = new Point(956, 1068);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(669, 641);
             button1.Name = "button1";
-            button1.Size = new Size(201, 80);
+            button1.Size = new Size(141, 48);
             button1.TabIndex = 15;
             button1.Text = "Mark";
             button1.UseVisualStyleBackColor = false;
@@ -122,25 +116,24 @@
             // 
             // panel2
             // 
-            panel2.Location = new Point(1173, 270);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(821, 162);
             panel2.Name = "panel2";
-            panel2.Size = new Size(47, 770);
+            panel2.Size = new Size(33, 462);
             panel2.TabIndex = 16;
             // 
             // AttendanceMark
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(1256, 1106);
+            ClientSize = new Size(879, 637);
             Controls.Add(panel2);
             Controls.Add(button1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(present);
             Controls.Add(absent);
             Controls.Add(panel1);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "AttendanceMark";
             Text = "AttendanceMark";
             Load += AttendanceMark_Load;
