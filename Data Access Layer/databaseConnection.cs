@@ -25,32 +25,7 @@ namespace KIET_LMS
             return con;
 
         }
-        public static SqlConnection getConnection() 
-        {
-            SqlConnection sql = new SqlConnection(databaseConnection.CreateConnectionString());
-            if (sql.State == ConnectionState.Closed)
-            {
-                sql.Open();
-            }
 
-            return sql;
-        }
 
-        public static DataTable getTable(string query)
-        {
-            SqlCommand cmd = new SqlCommand(query, databaseConnection.getConnection());
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-
-            return dt;
-        }
-
-        public static void Execute(string query) 
-        {
-            SqlCommand cmd = new SqlCommand(query,databaseConnection.getConnection());
-            cmd.ExecuteNonQuery();
-        }
-       
     }
 }

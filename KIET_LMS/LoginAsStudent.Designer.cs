@@ -149,7 +149,7 @@
             Email.ForeColor = Color.FromArgb(237, 242, 244);
             Email.Location = new Point(8, 8);
             Email.Name = "Email";
-            Email.PlaceholderText = "Email";
+            Email.PlaceholderText = "SID";
             Email.Size = new Size(405, 31);
             Email.TabIndex = 5;
             // 

@@ -259,7 +259,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(879, 60);
+            panel2.Size = new Size(917, 60);
             panel2.TabIndex = 8;
             // 
             // home_student
@@ -267,7 +267,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(879, 637);
+            ClientSize = new Size(917, 712);
             Controls.Add(label10);
             Controls.Add(cgpa);
             Controls.Add(age);

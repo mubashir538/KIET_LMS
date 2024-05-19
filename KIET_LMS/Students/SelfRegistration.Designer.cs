@@ -98,16 +98,16 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(99, 199);
+            flowLayoutPanel1.Location = new Point(30, 186);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(666, 388);
+            flowLayoutPanel1.Size = new Size(816, 491);
             flowLayoutPanel1.TabIndex = 12;
             // 
             // panel1
             // 
-            panel1.Location = new Point(734, 139);
+            panel1.Location = new Point(818, 181);
             panel1.Name = "panel1";
-            panel1.Size = new Size(47, 447);
+            panel1.Size = new Size(28, 496);
             panel1.TabIndex = 14;
             // 
             // button1
@@ -123,6 +123,7 @@
             button1.TabIndex = 15;
             button1.Text = "Done";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // SelfRegistration
             // 

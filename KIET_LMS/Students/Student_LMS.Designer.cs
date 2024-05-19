@@ -63,7 +63,7 @@
             panel1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(315, 637);
+            panel1.Size = new Size(315, 702);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -161,7 +161,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(10, 10, 10, 10);
+            pictureBox1.Padding = new Padding(10);
             pictureBox1.Size = new Size(315, 112);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
@@ -191,7 +191,7 @@
             label1.Location = new Point(0, -19);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Padding = new Padding(4, 4, 4, 4);
+            label1.Padding = new Padding(4);
             label1.Size = new Size(187, 81);
             label1.TabIndex = 2;
             label1.Text = "KIET";
@@ -204,7 +204,7 @@
             button4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = Color.FromArgb(237, 242, 244);
             button4.Image = Properties.Resources.Icon_awesome_arrow_left;
-            button4.Location = new Point(792, 6);
+            button4.Location = new Point(888, 6);
             button4.Name = "button4";
             button4.Size = new Size(36, 33);
             button4.TabIndex = 4;
@@ -218,7 +218,7 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button5.ForeColor = Color.FromArgb(237, 242, 244);
-            button5.Location = new Point(834, 6);
+            button5.Location = new Point(930, 6);
             button5.Name = "button5";
             button5.Size = new Size(36, 33);
             button5.TabIndex = 5;
@@ -237,7 +237,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(315, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(879, 45);
+            panel2.Size = new Size(977, 45);
             panel2.TabIndex = 8;
             // 
             // button1
@@ -246,7 +246,7 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.Icon_metro_switch;
-            button1.Location = new Point(744, 6);
+            button1.Location = new Point(840, 6);
             button1.Name = "button1";
             button1.Size = new Size(42, 33);
             button1.TabIndex = 11;
@@ -267,14 +267,14 @@
             show.Dock = DockStyle.Fill;
             show.Location = new Point(315, 45);
             show.Name = "show";
-            show.Size = new Size(879, 592);
+            show.Size = new Size(977, 657);
             show.TabIndex = 9;
             // 
             // Student_LMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1194, 637);
+            ClientSize = new Size(1292, 702);
             Controls.Add(show);
             Controls.Add(panel2);
             Controls.Add(panel1);

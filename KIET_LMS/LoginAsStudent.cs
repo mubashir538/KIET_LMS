@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,9 +40,11 @@ namespace KIET_LMS
 
         private void Login_Click(object sender, EventArgs e)
         {
-            string query = String.Format("select * from Std where email='{0}' and password='{1}'",
-                Email.Text.ToString(), Password.Text.ToString());
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("loginStudent", Email.Text.ToString(), Password.Text.ToString());
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
 
 
             if (dt.Rows.Count != 0)

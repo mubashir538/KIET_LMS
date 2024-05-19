@@ -50,7 +50,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(879, 63);
+            panel2.Size = new Size(899, 63);
             panel2.TabIndex = 0;
             panel2.Paint += panel2_Paint;
             // 
@@ -72,7 +72,7 @@
             panel3.Controls.Add(panel4);
             panel3.Location = new Point(22, 120);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(3, 3, 3, 3);
+            panel3.Padding = new Padding(3);
             panel3.Size = new Size(833, 527);
             panel3.TabIndex = 13;
             // 
@@ -163,7 +163,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(879, 637);
+            ClientSize = new Size(899, 708);
             Controls.Add(panel3);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;

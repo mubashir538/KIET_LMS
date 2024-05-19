@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,15 +21,19 @@ namespace KIET_LMS
         private void CourseTimingsPM_Load(object sender, EventArgs e)
         {
             new TouchScrollVertical(flowLayoutPanel1);
-            string query = "select * from Classes where Day='Mon'";
-
-            ShowButtons(query);
+            
+           
+            ShowButtons("Mon");
         }
-        private void ShowButtons(String query)
+        private void ShowButtons(String data)
         {
             flowLayoutPanel1.Controls.Clear();
-            DataTable dt = databaseConnection.getTable(query);
-
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getclassesfromday",data);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
+            
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Panel panel = new Panel();
@@ -96,51 +101,44 @@ namespace KIET_LMS
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Mon'";
-
-            ShowButtons(query);
+            
+            ShowButtons("Mon");
         }
 
         private void tues_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Tues'";
-
-            ShowButtons(query);
+    
+            ShowButtons("Tues");
         }
 
         private void wed_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Wed'";
 
-            ShowButtons(query);
+            ShowButtons("Wed");
         }
 
         private void thurs_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Thurs'";
 
-            ShowButtons(query);
+            ShowButtons("Thurs");
         }
 
         private void fri_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Fri'";
 
-            ShowButtons(query);
+            ShowButtons("Fri");
         }
 
         private void sat_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Sat'";
 
-            ShowButtons(query);
+            ShowButtons("Sat");
         }
 
         private void sun_Click(object sender, EventArgs e)
         {
-            string query = "select * from Classes where Day='Sun'";
 
-            ShowButtons(query);
+            ShowButtons("Sun");
         }
 
         private void label6_Click(object sender, EventArgs e)

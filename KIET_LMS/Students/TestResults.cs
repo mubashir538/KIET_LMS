@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace KIET_LMS
 {
@@ -56,18 +58,22 @@ namespace KIET_LMS
                 panel3.Visible = true;
                 panel4.Visible = true;
                 label2.Visible = true;
-                string query = string.Format("select * from Enrolled where Sid={0} and Cid={1}"
-                    , Student.SID, textBox1.Text.Trim());
-                DataTable dt = databaseConnection.getTable(query);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("getStudentofCid", textBox1.Text.Trim(), Student.SID);
+                databaseAccess.ExecuteQuery();
+                DataTable dt = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
                 if (dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Please Enter a Valid Class ID");
                 }
                 else
                 {
-                    string q2 = string.Format("select * from Assesment where Aid={0}",
-                        dt.Rows[0][3].ToString());
-                    DataTable dt2 = databaseConnection.getTable(q2);
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("getAssesmenfromAID", dt.Rows[0][3].ToString());
+                    databaseAccess.ExecuteQuery();
+                    DataTable dt2 = databaseAccess.GetDataTable();
+                    databaseAccess.CloseConnection();
                     q1obt.Text = nullcheck(dt2.Rows[0][1].ToString());
                     q2obt.Text = nullcheck(dt2.Rows[0][2].ToString());
                     q3obt.Text = nullcheck(dt2.Rows[0][5].ToString());

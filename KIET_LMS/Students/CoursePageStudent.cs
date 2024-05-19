@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,16 +38,21 @@ namespace KIET_LMS
 
         private void CoursePageStudent_Load(object sender, EventArgs e)
         {
-            string query = String.Format("select * from Classes where Cld='{0}'"
-                , cid);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getClasses",cid);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             day.Text = dt.Rows[0][3].ToString();
             room.Text = dt.Rows[0][4].ToString();
             slot.Text = dt.Rows[0][5].ToString();
             tname.Text = dt.Rows[0][2].ToString();
-            string q2 = string.Format("select * from Teacher where name='{0}'",
-                dt.Rows[0][2].ToString());
-            DataTable dt2 = databaseConnection.getTable(q2);
+
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getTeacherfroName",dt.Rows[0][2].ToString());
+            databaseAccess.ExecuteQuery();
+            DataTable dt2 = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             tmail.Text = dt2.Rows[0][6].ToString();
             tpost.Text = dt2.Rows[0][3].ToString();
             courseAbr.Text = name;

@@ -116,7 +116,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(10, 10, 10, 10);
+            pictureBox1.Padding = new Padding(10);
             pictureBox1.Size = new Size(315, 112);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
@@ -136,7 +136,7 @@
             panel1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(315, 637);
+            panel1.Size = new Size(315, 745);
             panel1.TabIndex = 3;
             panel1.Paint += panel1_Paint;
             // 
@@ -163,7 +163,7 @@
             label1.Location = new Point(0, -19);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Padding = new Padding(4, 4, 4, 4);
+            label1.Padding = new Padding(4);
             label1.Size = new Size(187, 81);
             label1.TabIndex = 2;
             label1.Text = "KIET";
@@ -176,7 +176,7 @@
             button6.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button6.ForeColor = Color.FromArgb(237, 242, 244);
             button6.Image = Properties.Resources.Icon_awesome_arrow_left;
-            button6.Location = new Point(792, 6);
+            button6.Location = new Point(828, 6);
             button6.Name = "button6";
             button6.Size = new Size(36, 33);
             button6.TabIndex = 4;
@@ -191,7 +191,7 @@
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button7.ForeColor = Color.FromArgb(237, 242, 244);
-            button7.Location = new Point(834, 6);
+            button7.Location = new Point(870, 6);
             button7.Name = "button7";
             button7.Size = new Size(36, 33);
             button7.TabIndex = 5;
@@ -206,7 +206,7 @@
             show.Dock = DockStyle.Fill;
             show.Location = new Point(315, 45);
             show.Name = "show";
-            show.Size = new Size(879, 592);
+            show.Size = new Size(920, 700);
             show.TabIndex = 11;
             show.Paint += show_Paint;
             // 
@@ -220,7 +220,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(315, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(879, 45);
+            panel2.Size = new Size(920, 45);
             panel2.TabIndex = 10;
             // 
             // button4
@@ -229,7 +229,7 @@
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Image = Properties.Resources.Icon_metro_switch;
-            button4.Location = new Point(744, 6);
+            button4.Location = new Point(780, 6);
             button4.Name = "button4";
             button4.Size = new Size(42, 33);
             button4.TabIndex = 10;
@@ -249,7 +249,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 45, 66);
-            ClientSize = new Size(1194, 637);
+            ClientSize = new Size(1235, 745);
             Controls.Add(show);
             Controls.Add(panel2);
             Controls.Add(panel1);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,23 +47,28 @@ namespace KIET_LMS
         private void StudentsClassSchedule_Load(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
-            string query = String.Format("select * from Enrolled where Sid={0}", Student.SID);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    string query2 = String.Format("select * from Classes where ClD ={0}",
-                        dt.Rows[i][0].ToString());
-                    ShowButtons(query2);
+                    ShowButtons(dt.Rows[i][0].ToString());
                 }
 
             }
         }
 
-        private void ShowButtons(String query)
+        private void ShowButtons(String data)
         {
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getClasses", data);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {

@@ -53,6 +53,7 @@
             showpanel.Name = "showpanel";
             showpanel.Size = new Size(879, 701);
             showpanel.TabIndex = 6;
+            showpanel.Paint += showpanel_Paint;
             // 
             // button3
             // 

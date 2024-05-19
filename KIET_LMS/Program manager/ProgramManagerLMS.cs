@@ -93,5 +93,10 @@ namespace KIET_LMS.Program_manager
         {
 
         }
+
+        private void showpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

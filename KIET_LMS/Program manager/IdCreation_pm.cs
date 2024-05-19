@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace KIET_LMS
 {
@@ -32,8 +34,11 @@ namespace KIET_LMS
 
         private void IdCreation_pm_Load(object sender, EventArgs e)
         {
-            string query = "select * from CoursesNames";
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getCourseNames");
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
 
             int btns = dt.Rows.Count;
             int x = 0;
@@ -52,7 +57,7 @@ namespace KIET_LMS
                 b.ForeColor = Color.FromArgb(237, 242, 244);
                 b.Name = dt.Rows[0][3].ToString();
                 b.FlatStyle = FlatStyle.Flat;
-                b.Text = "   " + dt.Rows[i][0].ToString();
+                b.Text = "  " + dt.Rows[i][0].ToString() + "-" + dt.Rows[i][1].ToString();
                 b.Font = new Font("Montserrat", 18);
                 b.FlatAppearance.BorderSize = 0;
                 b.Margin = new Padding(0, 0, 0, 0);
@@ -63,8 +68,12 @@ namespace KIET_LMS
 
             }
             // For Faculty
-            string query1 = "select * from Teacher";
-            DataTable dt1 = databaseConnection.getTable(query1);
+
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getAllTeachers");
+            databaseAccess.ExecuteQuery();
+            DataTable dt1 = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
 
             int btns1 = dt1.Rows.Count;
             y = 0;
@@ -306,10 +315,12 @@ namespace KIET_LMS
         {
             if (course && faculty && day && slot && room)
             {
-                string query = String.Format("insert into Classes values('{0}','{1}','{2}','{3}','{4}')"
-                    , MyCourse.Text.ToString().Trim(), MyFaculty.Text.ToString().Trim(), MyDay.Text.ToString().Trim(),
+                databaseAccess.OpenConnection();
+                int courseid = int.Parse(MyCourse.Text.ToString().Trim().Split("-")[0]);
+                databaseAccess.LoadSpParameters("inserttoClasses",courseid, MyFaculty.Text.ToString().Trim(), MyDay.Text.ToString().Trim(),
                     MyRoom.Text.ToString().Trim(), MySlot.Text.ToString().Trim());
-                databaseConnection.Execute(query);
+                databaseAccess.ExecuteQuery();
+                databaseAccess.CloseConnection();
                 MyMessageBox.Show("ID Created Successfully!");
             }
             else

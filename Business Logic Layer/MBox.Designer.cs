@@ -28,166 +28,147 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.showpanel = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.message = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            panel2 = new Panel();
+            label1 = new Label();
+            showpanel = new Panel();
+            button4 = new Button();
+            button5 = new Button();
+            panel1 = new Panel();
+            button2 = new Button();
+            message = new Label();
+            pictureBox1 = new PictureBox();
+            panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(134)))), ((int)(((byte)(56)))));
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.showpanel);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(469, 39);
-            this.panel2.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.button1.Location = new System.Drawing.Point(440, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 27);
-            this.button1.TabIndex = 10;
-            this.button1.TabStop = false;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            panel2.BackColor = Color.FromArgb(235, 134, 56);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(showpanel);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button5);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1007, 39);
+            panel2.TabIndex = 9;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Oswald", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.label1.Location = new System.Drawing.Point(12, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "KIET";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(237, 242, 244);
+            label1.Location = new Point(12, 3);
+            label1.Name = "label1";
+            label1.Size = new Size(55, 24);
+            label1.TabIndex = 1;
+            label1.Text = "KIET";
             // 
             // showpanel
             // 
-            this.showpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.showpanel.Location = new System.Drawing.Point(3, 45);
-            this.showpanel.Name = "showpanel";
-            this.showpanel.Size = new System.Drawing.Size(879, 701);
-            this.showpanel.TabIndex = 9;
+            showpanel.BackColor = Color.FromArgb(43, 45, 66);
+            showpanel.Location = new Point(3, 45);
+            showpanel.Name = "showpanel";
+            showpanel.Size = new Size(879, 701);
+            showpanel.TabIndex = 9;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(134)))), ((int)(((byte)(56)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.button4.Location = new System.Drawing.Point(792, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 33);
-            this.button4.TabIndex = 4;
-            this.button4.TabStop = false;
-            this.button4.UseVisualStyleBackColor = false;
+            button4.BackColor = Color.FromArgb(235, 134, 56);
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.ForeColor = Color.FromArgb(237, 242, 244);
+            button4.Location = new Point(792, 6);
+            button4.Name = "button4";
+            button4.Size = new Size(36, 33);
+            button4.TabIndex = 4;
+            button4.TabStop = false;
+            button4.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.button5.Location = new System.Drawing.Point(834, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(36, 33);
-            this.button5.TabIndex = 5;
-            this.button5.TabStop = false;
-            this.button5.Text = "X";
-            this.button5.UseVisualStyleBackColor = false;
+            button5.BackColor = Color.FromArgb(230, 42, 42);
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = Color.FromArgb(237, 242, 244);
+            button5.Location = new Point(954, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(36, 33);
+            button5.TabIndex = 5;
+            button5.TabStop = false;
+            button5.Text = "X";
+            button5.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.message);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 42);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(469, 187);
-            this.panel1.TabIndex = 10;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            panel1.BackColor = Color.FromArgb(43, 45, 66);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(message);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 42);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1007, 219);
+            panel1.TabIndex = 10;
+            panel1.Paint += panel1_Paint;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(134)))), ((int)(((byte)(56)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.button2.Location = new System.Drawing.Point(327, 145);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Okay!";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackColor = Color.FromArgb(235, 134, 56);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Montserrat Medium", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.FromArgb(43, 45, 66);
+            button2.Location = new Point(835, 157);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 36);
+            button2.TabIndex = 2;
+            button2.Text = "Okay!";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // message
             // 
-            this.message.AutoSize = true;
-            this.message.Font = new System.Drawing.Font("Montserrat", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.message.Location = new System.Drawing.Point(163, 12);
-            this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(62, 25);
-            this.message.TabIndex = 1;
-            this.message.Text = "label1";
+            message.AutoSize = true;
+            message.Font = new Font("Montserrat", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            message.ForeColor = Color.FromArgb(237, 242, 244);
+            message.Location = new Point(163, 12);
+            message.Name = "message";
+            message.Size = new Size(63, 25);
+            message.TabIndex = 1;
+            message.Text = "label1";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Location = new Point(12, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(140, 73);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // MBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(134)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(475, 232);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MBox";
-            this.Padding = new System.Windows.Forms.Padding(3);
-            this.Text = "MessageBox";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(235, 134, 56);
+            ClientSize = new Size(1013, 264);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "MBox";
+            Padding = new Padding(3);
+            Text = "MessageBox";
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -196,7 +177,6 @@
         private Panel showpanel;
         private Button button4;
         private Button button5;
-        private Button button1;
         private Panel panel1;
         private PictureBox pictureBox1;
         private Button button2;

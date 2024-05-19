@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -76,21 +77,27 @@ namespace KIET_LMS
         private void S_CurrentCourses_Load(object sender, EventArgs e)
         {
             new TouchScrollVertical(flowLayoutPanel1);
-            string query = String.Format("select * from Enrolled where Sid={0}", Student.SID);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     User_Controls.Course1 c1 = new User_Controls.Course1();
-                    string q2 = string.Format("select * from Classes where ClD={0}"
-                        , dt.Rows[i][0]);
-                    DataTable dt2 = databaseConnection.getTable(q2);
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("getClasses", dt.Rows[i][0]);
+                    databaseAccess.ExecuteQuery();
+                    DataTable dt2 = databaseAccess.GetDataTable();
+                    databaseAccess.CloseConnection();
                     string lorT = dt2.Rows[0][1].ToString().Substring(dt2.Rows[0][1].ToString().Length - 4, 3);
-                    string q3 = string.Format("select * from CoursesNames where Courses='{0}'",
-                        dt2.Rows[0][1].ToString());
-                    DataTable dt3 = databaseConnection.getTable(q3);
-                    c1.course.Text = dt3.Rows[0][3].ToString();
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("getAbreviation",dt2.Rows[0][1].ToString());
+                    string abr = databaseAccess.ExecuteValue().ToString();
+                    databaseAccess.CloseConnection();
+                    c1.course.Text = abr.ToString();
                     c1.id.Text = dt.Rows[i][0].ToString();
                     if (lorT == "Lab")
                     {

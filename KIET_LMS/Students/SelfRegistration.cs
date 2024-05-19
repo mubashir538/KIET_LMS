@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,10 +25,16 @@ namespace KIET_LMS
         {
             new TouchScrollVertical(flowLayoutPanel1);
             clist = new List<Courses>();
-            string query = String.Format("select * from CoursesNames");
-            DataTable course = databaseConnection.getTable(query);
-            string query2 = String.Format("select * from Classes");
-            DataTable classes = databaseConnection.getTable(query2);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getCourseNames");
+            databaseAccess.ExecuteQuery();
+            DataTable course = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getClassIDs");
+            databaseAccess.ExecuteQuery();
+            DataTable classes = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             for (int i = 0; i < course.Rows.Count; i++)
             {
                 bool flag = true;
@@ -35,8 +42,11 @@ namespace KIET_LMS
                 {
                     if (course.Rows[i][0].ToString() == classes.Rows[j][1].ToString())
                     {
-                        string q3 = string.Format("select * from Enrolled where Sid={0}", Student.SID);
-                        DataTable dt3 = databaseConnection.getTable(q3);
+                        databaseAccess.OpenConnection();
+                        databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
+                        databaseAccess.ExecuteQuery();
+                        DataTable dt3 = databaseAccess.GetDataTable();
+                        databaseAccess.CloseConnection();
 
                         for (int k = 0; k < dt3.Rows.Count; k++)
                         {
@@ -116,7 +126,8 @@ namespace KIET_LMS
             updateCRHours();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (clist.Count != 0)
             {
@@ -128,8 +139,6 @@ namespace KIET_LMS
             {
                 MyMessageBox.Show("Please Select a Course");
             }
-
         }
-
     }
 }

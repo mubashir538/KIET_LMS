@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -103,9 +104,11 @@ namespace KIET_LMS
         {
             flowLayoutPanel1.Controls.Clear();
             string assesmentTotal = "";
-            string query = String.Format("select * from Assesment where CID={0}"
-                ,cid);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getAssesmenofID", cid);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 alreadyExists = true;
@@ -150,14 +153,19 @@ namespace KIET_LMS
             else 
             {
                 alreadyExists = false;
-                string query3 = string.Format("select * from Enrolled where Cid ={0}",
-               cid.ToString());
-                DataTable dt3 = databaseConnection.getTable(query3);
+
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("loadAttendance", cid.ToString());
+                databaseAccess.ExecuteQuery();
+                DataTable dt3 = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
                 for (int i = 0; i < dt3.Rows.Count; i++)
                 {
-                    string student = string.Format("select * from Std where ID={0}",
-                        dt3.Rows[i][1].ToString());
-                    DataTable dt2 = databaseConnection.getTable(student);
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("getStudentofID", dt3.Rows[i][1].ToString());
+                    databaseAccess.ExecuteQuery();
+                    DataTable dt2 = databaseAccess.GetDataTable();
+                    databaseAccess.CloseConnection();
 
                     User_Controls.tableMarks tm = new User_Controls.tableMarks();
                     tm.Sno.Text = (i + 1) + ".";
@@ -173,10 +181,11 @@ namespace KIET_LMS
             assesmentTotal = dt.Rows[0][a1].ToString();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string student = string.Format("select * from Std where ID={0}",
-           dt.Rows[i][20].ToString());
-                DataTable dt2 = databaseConnection.getTable(student);
-
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("getStudentofID", dt.Rows[i][20].ToString());
+                databaseAccess.ExecuteQuery();
+                DataTable dt2 = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
                 User_Controls.tableMarks tm = new User_Controls.tableMarks();
                 tm.Sno.Text = (i + 1) + ".";
                 tm.name.Text = dt2.Rows[0][1].ToString();
@@ -216,26 +225,31 @@ namespace KIET_LMS
                 if (alreadyExists)
                 {
                     // Update
-                    string query = string.Format("select * from Assesment where CID={0} and SID='{1}'"
-                        ,cid,tm.sid.Text);
-                    DataTable dt = databaseConnection.getTable(query);
-                    string query2 = string.Format("update Assesment set {0}={1},{2}={3} where CID={4} and SID={5}"
-                        ,colName,stmarks,totalColName,totalMarks,cid,tm.sid.Text);
-                    databaseConnection.Execute(query2);
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("updateAssesment", colName, stmarks, totalColName, totalMarks, cid, tm.sid.Text);
+                    databaseAccess.ExecuteQuery();
+                    databaseAccess.CloseConnection();
                 }
                 else 
                 {
                     // Insert
-                    string query = string.Format("insert into Assesment ({0},CID,SID,{1}) values({2},{3},{4},{5})",
-                        colName,totalColName,stmarks,cid,tm.sid.Text,totalMarks);
-                    databaseConnection.Execute(query);
-                    string query2 = string.Format("select * from Assesment where CID={0} and SID={1}"
-                        , cid, tm.sid.Text);
-                    DataTable dt = databaseConnection.getTable(query2);
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("insertAssesment", colName, totalColName, stmarks, cid, tm.sid.Text, totalMarks);
+                    databaseAccess.ExecuteQuery();
+                    databaseAccess.CloseConnection();
+
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("getAssesmenofcidandsid", cid, tm.sid.Text);
+                    databaseAccess.ExecuteQuery();
+                    DataTable dt = databaseAccess.GetDataTable();
+                    databaseAccess.CloseConnection();
                     string aid = dt.Rows[0][0].ToString();
-                    string query3 = string.Format("update Enrolled set Aid={0} where Cid={1} and Sid={2}",
-                        aid,cid,tm.sid.Text);
-                    databaseConnection.Execute(query3);
+
+
+                    databaseAccess.OpenConnection();
+                    databaseAccess.LoadSpParameters("updateEnrolled",aid,cid,tm.sid.Text);
+                    databaseAccess.ExecuteQuery();
+                    databaseAccess.CloseConnection();
                 }
             }
             alreadyExists = true;

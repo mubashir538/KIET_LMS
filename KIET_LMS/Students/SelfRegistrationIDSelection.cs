@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,13 +38,16 @@ namespace KIET_LMS
                         if (panel.Controls[j].BackColor == Color.FromArgb(235, 139, 56))
                         {
                             User_Controls.Id_Creation id = (User_Controls.Id_Creation)panel.Controls[j];
-                            string query = String.Format("select * from Teacher where name = '{0}'"
-                                ,id.faculty.Text.ToString().Trim());
-                            DataTable dt = databaseConnection.getTable(query);
+                            databaseAccess.OpenConnection();
+                            databaseAccess.LoadSpParameters("getTeacherfroName", id.faculty.Text.ToString().Trim());
+                            databaseAccess.ExecuteQuery();
+                            DataTable dt = databaseAccess.GetDataTable();
+                            databaseAccess.CloseConnection();
                             int tid = int.Parse(dt.Rows[0][0].ToString());
-                            string enrollQuery = String.Format("insert into Enrolled (Cid,Sid,Tid,Present,Absents) values({0},{1},{2},0,0)"
-                                , id.cid.Text.Trim(), Student.SID.ToString(), tid.ToString());
-                            databaseConnection.Execute(enrollQuery);
+                            databaseAccess.OpenConnection();
+                            databaseAccess.LoadSpParameters("insertEnrolled ", id.cid.Text.Trim(), Student.SID.ToString(), tid.ToString(),0,0);
+                            databaseAccess.ExecuteQuery();
+                            databaseAccess.CloseConnection();
                         }
                     }
                 }
@@ -66,9 +70,12 @@ namespace KIET_LMS
                 c4.course.Text = clist[i].name;
                 c4.crHour.Text = clist[i].CrHours.ToString();
                 c4.abb.Text = clist[i].abr;
-                string query = String.Format("select * from Classes where CourseName = '{0}'"
-                    , clist[i].name);
-                DataTable dt = databaseConnection.getTable(query);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("getclassesfromcoursename",clist[i].name);
+                databaseAccess.ExecuteQuery();
+                DataTable dt = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
+               
                 for (int j = 0; j < dt.Rows.Count; j++)
                 {
                     User_Controls.Id_Creation id = new User_Controls.Id_Creation();

@@ -24,21 +24,31 @@ namespace Business_Logic_Layer
         string dbpassvalue = "DatabasePassword";
         public int SaveToDb()
         {
-            string query1 = String.Format("Select * from Std where email ='{0}'", Student.email);
-            DataTable dt1 = databaseConnection.getTable(query1);
+
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("checkemail",Student.email);
+            databaseAccess.ExecuteQuery();
+            DataTable dt1 = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
 
             if (dt1.Rows.Count == 0)
             {
-                string query = String.Format("Insert into Std (Name,email,age,DegreeProgram,CNIC,cellNo,gender,password,crHourLimit) values('{0}','{1}',{2},'{3}',{4},{5},'{6}','{7}',{8})"
-                    , Student.name, Student.email, Student.age, Student.DegreeProgram, Student.CNIC, Student.cellNo,
-                    Student.gender, Student.Password, Student.crHourLimit);
-                databaseConnection.Execute(query);
-                MyMessageBox.Show("Welcome to KIET, You're now a Student of KIET");
 
-                string query2 = String.Format("Select * from Std where email ='{0}'", Student.email);
-                DataTable dt2 = databaseConnection.getTable(query2);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("addStudent", Student.name, Student.email, Student.age, Student.DegreeProgram, Student.CNIC, Student.cellNo,
+                    Student.gender, Student.Password, Student.crHourLimit);
+                databaseAccess.ExecuteQuery();
+                databaseAccess.CloseConnection();
+
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("checkemail", Student.email);
+                databaseAccess.ExecuteQuery();
+                DataTable dt2 = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
 
                 Student.SID = int.Parse(dt2.Rows[0][0].ToString());
+
+                MyMessageBox.Show($"Welcome to KIET, You're now a Student of KIET with SID: {Student.SID}");
                 return 0;
             }
             else
@@ -105,8 +115,11 @@ namespace Business_Logic_Layer
             }
             else
             {
-                string query = String.Format("select * from Teacher where ID={0} and password='{1}'", id, pass);
-                DataTable dt = databaseConnection.getTable(query);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("loginTeacher", id,pass);
+                databaseAccess.ExecuteQuery();
+                DataTable dt = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
                 if (dt.Rows.Count != 0)
                 {
                     Teacher.ID = int.Parse(dt.Rows[0][0].ToString());
@@ -141,6 +154,7 @@ namespace Business_Logic_Layer
                 databaseConnection.userid = userid;
                 databaseConnection.password = password;
                 databaseAccess.OpenConnection();
+                databaseAccess.CloseConnection();
 
                 string sname = servername.ToString();
                 dbname = dbname.ToString();
@@ -174,6 +188,7 @@ namespace Business_Logic_Layer
                 databaseConnection.database = dvalue.ToString().Trim();
                 databaseConnection.userid = duvalue.ToString().Trim();
                 databaseConnection.password = dpvalue.ToString().Trim();
+
 
                 key.Close();
                 return 0;

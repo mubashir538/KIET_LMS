@@ -1,4 +1,5 @@
-﻿using KIET_LMS;
+﻿using Data_Access_Layer;
+using KIET_LMS;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,28 +17,39 @@ namespace Business_Logic_Layer
         public DataTable LoadAttendance(FlowLayoutPanel flowLayoutPanel,int cid)
         {
             new TouchScrollVertical(flowLayoutPanel);
-            string query = string.Format("Select * from Enrolled where Cid = {0}", cid.ToString());
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("loadAttendance",cid.ToString());
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
           return dt;
         }
         public DataTable LoadSids(string sid)
         {
-            string query1 = string.Format("Select * from Std where ID = {0}", sid);
-            DataTable dt1 = databaseConnection.getTable(query1);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getStudentofID", sid);
+            databaseAccess.ExecuteQuery();
+            DataTable dt1 = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             return dt1;
         }
 
         public void MarkAttendance(int cid,bool pr, List<int> ids)
         {
-            string query = string.Format("Select * from Enrolled where Cid = {0}", cid.ToString());
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("loadAttendance", cid.ToString());
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 int prs, abs;
                 string sid = dt.Rows[i][1].ToString();
-                string q2 = string.Format("select * from Enrolled where Cid = {0} and Sid ={1}"
-                    , cid.ToString(), sid);
-                DataTable dt2 = databaseConnection.getTable(q2);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("getStudentofCid", cid.ToString(),sid);
+                databaseAccess.ExecuteQuery();
+                DataTable dt2 = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
                 prs = int.Parse(dt2.Rows[0][4].ToString());
                 abs = int.Parse(dt2.Rows[0][5].ToString());
 
@@ -82,9 +94,10 @@ namespace Business_Logic_Layer
                     }
                 }
 
-                string query2 = String.Format("update Enrolled set Present={0},Absents={1} where Sid = {2} and Cid = {3}"
-                       , prs, abs, sid, cid);
-                databaseConnection.Execute(query2);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("UpdatePresents", prs, abs, sid, cid);
+                databaseAccess.ExecuteQuery();
+                databaseAccess.CloseConnection();
             }
 
             MyMessageBox.Show("The Attendance has been Marked");
@@ -93,22 +106,32 @@ namespace Business_Logic_Layer
 
         public DataTable getCourseInfo(int cid)
         {
-            string query = string.Format("select * from Classes where ClD={0} ", cid.ToString());
-            return databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getClasses",cid.ToString());
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
+            return dt;
         }
 
         public DataTable getCourses()
         {
-            string querycourses = String.Format("select * from Classes where Faculty='{0}'",
-                Teacher.name);
-            return databaseConnection.getTable(querycourses);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getClassesofFaculty",Teacher.name);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
+            return dt;
 
         }
 
-        public DataTable getCourseNames(string courseids)
+        public string getCourseNames(string courseids)
         {
-            string queryAbrreviation = String.Format("select * from CoursesNames where Courses='{0}'",courseids);
-            return databaseConnection.getTable(queryAbrreviation);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getAbreviation", courseids);
+            string abr = databaseAccess.ExecuteValue().ToString();
+            databaseAccess.CloseConnection();
+            return abr;
         }
         public Color generateColor()
         {

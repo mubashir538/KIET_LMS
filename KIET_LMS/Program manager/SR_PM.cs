@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data_Access_Layer;
 using KIET_LMS.Program_manager;
 
 namespace KIET_LMS
@@ -29,21 +30,28 @@ namespace KIET_LMS
             if (dt.Rows.Count != 0)
             {
                 flowLayoutPanel1.Controls.Clear();
-                string quer = String.Format("select * from Enrolled where Sid={0}", dt.Rows[0][0].ToString());
-                DataTable d = databaseConnection.getTable(quer);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("getEnrolledfromSID", dt.Rows[0][0].ToString());
+                databaseAccess.ExecuteQuery();
+                DataTable d = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
                 if (d.Rows.Count != 0)
                 {
                     for (int i = 0; i < d.Rows.Count; i++)
                     {
                         User_Controls.Course_3 c1 = new User_Controls.Course_3();
-                        string q2 = string.Format("select * from Classes where ClD={0}"
-                            , d.Rows[i][0]);
-                        DataTable dt2 = databaseConnection.getTable(q2);
+                        databaseAccess.OpenConnection();
+                        databaseAccess.LoadSpParameters("getClasses", d.Rows[i][0]);
+                        databaseAccess.ExecuteQuery();
+                        DataTable dt2 = databaseAccess.GetDataTable();
+                        databaseAccess.CloseConnection();
+       
                         string lorT = dt2.Rows[0][1].ToString().Substring(dt2.Rows[0][1].ToString().Length - 4, 3);
-                        string q3 = string.Format("select * from CoursesNames where Courses='{0}'",
-                            dt2.Rows[0][1].ToString());
-                        DataTable dt3 = databaseConnection.getTable(q3);
-                        c1.course.Text = dt3.Rows[0][3].ToString();
+                        databaseAccess.OpenConnection();
+                        databaseAccess.LoadSpParameters("getAbreviation",dt2.Rows[0][1].ToString());
+                        string abr = databaseAccess.ExecuteValue().ToString();
+                        databaseAccess.CloseConnection();
+                        c1.course.Text = abr.ToString();
                         c1.id.Text = d.Rows[i][0].ToString();
                         if (lorT == "Lab")
                         {
@@ -91,9 +99,13 @@ namespace KIET_LMS
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string query = String.Format("select * from Std where ID={0}", StudentID.Text.ToString());
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("getStudentofID", StudentID.Text.ToString());
+                databaseAccess.ExecuteQuery();
+                DataTable dt = databaseAccess.GetDataTable();
+                databaseAccess.CloseConnection();
+                string query = String.Format("select * from Std where ID={0}");
                 sid = int.Parse(StudentID.Text);
-                DataTable dt = databaseConnection.getTable(query);
                 if (dt.Rows.Count == 0)
                 {
                     MyMessageBox.Show("This Student Does not Exist");
@@ -122,19 +134,32 @@ namespace KIET_LMS
         {
             User_Controls.Course_3 c3 = (User_Controls.Course_3)sender;
             string cid = c3.id.Text;
-            string query = string.Format("select * from Enrolled where Cid={0} and Sid={1}", cid, sid.ToString());
-            DataTable dt = databaseConnection.getTable(query);
+
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getStudentofCid", cid, sid.ToString());
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
+
             if (dt.Rows[0][3].ToString() != "")
             {
-                string query2 = string.Format("delete from Assesment where Aid={0}", dt.Rows[0][3].ToString());
-                databaseConnection.Execute(query2);
+                databaseAccess.OpenConnection();
+                databaseAccess.LoadSpParameters("deleteAssesment", dt.Rows[0][3].ToString());
+                databaseAccess.ExecuteQuery();
+                databaseAccess.CloseConnection();
             }
-            string q3 = string.Format("delete from Enrolled where Cid={0} and Sid={1}", cid, sid.ToString());
-            databaseConnection.Execute(q3);
+
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("deleteEnrollment ", cid, sid.ToString());
+            databaseAccess.ExecuteQuery();
+            databaseAccess.CloseConnection();
             MyMessageBox.Show("Course Dropped Successfully");
 
-            string query4 = String.Format("select * from Std where ID={0}", sid);
-            DataTable dt4 = databaseConnection.getTable(query4);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getStudentofID  ", sid);
+            databaseAccess.ExecuteQuery();
+            DataTable dt4 = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             LoadCourses(dt4);
         }
     }

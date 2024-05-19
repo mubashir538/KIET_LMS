@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,8 +39,11 @@ namespace KIET_LMS
 
         private void CheckAttendance()
         {
-            string query = String.Format("select * from Enrolled where Sid={0}", Student.SID);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getEnrolledfromSID",Student.SID);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 double totaldays = 0;
@@ -64,16 +68,22 @@ namespace KIET_LMS
             double max = 0;
             string course = "";
             double obtained = 0;
-            string query = string.Format("select * from Enrolled where Sid={0}", Student.SID);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     if (dt.Rows[i][3].ToString() != "")
                     {
-                        string q2 = string.Format("select * from Assesment where Aid={0}", dt.Rows[i][3].ToString());
-                        DataTable dt2 = databaseConnection.getTable(q2);
+                        databaseAccess.OpenConnection();
+                        databaseAccess.LoadSpParameters("getAssesmenfromAID", dt.Rows[i][3].ToString());
+                        databaseAccess.ExecuteQuery();
+                        DataTable dt2 = databaseAccess.GetDataTable();
+                        databaseAccess.CloseConnection();
                         if (dt2.Rows.Count != 0)
                         {
                             double total = checknull(dt2.Rows[0][10].ToString()) +
@@ -101,11 +111,16 @@ namespace KIET_LMS
                             {
                                 max = per;
                                 obtained = obt;
-                                string q3 = string.Format("select * from Classes where Cld={0}", dt2.Rows[0][19].ToString());
-                                DataTable dt3 = databaseConnection.getTable(q3);
-                                string q4 = string.Format("select * from CoursesNames where Courses='{0}'", dt3.Rows[0][1].ToString());
-                                DataTable dt4 = databaseConnection.getTable(q4);
-                                course = dt4.Rows[0][3].ToString();
+                                databaseAccess.OpenConnection();
+                                databaseAccess.LoadSpParameters("getClasses", dt2.Rows[0][19].ToString());
+                                databaseAccess.ExecuteQuery();
+                                DataTable dt3 = databaseAccess.GetDataTable();
+                                databaseAccess.CloseConnection();
+                                databaseAccess.OpenConnection();
+                                databaseAccess.LoadSpParameters("getAbreviation", dt3.Rows[0][1].ToString());
+                                string abr = databaseAccess.ExecuteValue().ToString();
+                                databaseAccess.CloseConnection();
+                                course = abr.ToString();
                             }
                         }
                     }
@@ -118,8 +133,11 @@ namespace KIET_LMS
 
         private void CheckProgress()
         {
-            string query = String.Format("select * from Enrolled where Sid={0}", Student.SID);
-            DataTable dt = databaseConnection.getTable(query);
+            databaseAccess.OpenConnection();
+            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            databaseAccess.ExecuteQuery();
+            DataTable dt = databaseAccess.GetDataTable();
+            databaseAccess.CloseConnection();
             double selectedCourses = dt.Rows.Count;
             double points = selectedCourses / 5.0;
             double per = points * 100;
