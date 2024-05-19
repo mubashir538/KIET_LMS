@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 
 namespace KIET_LMS
 {
@@ -16,17 +17,17 @@ namespace KIET_LMS
         public static string userid;
         public static string password;
        
-        public static SqlConnection sql = new SqlConnection(databaseConnection.CreateConnectionString());
-
+        
         public static string CreateConnectionString()
         {
-          //    string con = "data source = " + databaseConnection.server.Trim() + "; initial catalog = " + databaseConnection.database.Trim() + "; user id = " + databaseConnection.userid.Trim() + "; password = " + databaseConnection.password.Trim() + ";";
-          string con = "data source = tcp:192.168.0.107,1433; initial catalog = KIET_LMS; user id = Mubashir;password = mub123;";
+             string con = "data source = " + server.Trim() + "; initial catalog = " + database.Trim() + "; user id = " + userid.Trim() + "; password = " + password.Trim() + ";";
+            // "data source = tcp:192.168.0.107,1433; initial catalog = KIET_LMS; user id = Mubashir;password = mub123;";
             return con;
 
         }
         public static SqlConnection getConnection() 
         {
+            SqlConnection sql = new SqlConnection(databaseConnection.CreateConnectionString());
             if (sql.State == ConnectionState.Closed)
             {
                 sql.Open();

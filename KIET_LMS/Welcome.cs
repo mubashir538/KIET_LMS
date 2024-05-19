@@ -37,16 +37,7 @@ namespace KIET_LMS
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            InitialCode i = new InitialCode();
-            //databaseConnection.getConnection();
-            int error = i.CheckRegistry();
-            if (error == 0)
-            {
-                RegisterOrLogin r = new RegisterOrLogin();
-                r.Show();
-            }
-
-
+          
         }
     }
 }

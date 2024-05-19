@@ -1,3 +1,4 @@
+using Business_Logic_Layer;
 using KIET_LMS.Program_manager;
 using KIET_LMS.Teachers;
 using System.Diagnostics;
@@ -18,8 +19,19 @@ namespace KIET_LMS
 
                 return;
             }
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Welcome());
+            InitialCode i = new InitialCode();
+            int error = i.CheckRegistry();
+            if (error == 0)
+            {
+                Application.Run(new RegisterOrLogin());
+            }
+            else
+            {
+                Application.Run(new Welcome());
+            }
+            
         }
 
         public static Process PriorProcess()

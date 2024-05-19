@@ -31,7 +31,7 @@ namespace KIET_LMS
         private void connect_Click(object sender, EventArgs e)
         {
             InitialCode c = new InitialCode();
-            int errorcode = c.ConnecttoServer(servername.Text, dbname.Text, userid.Text, password.Text);
+            int errorcode = c.ConnecttoServer(servername.Text.ToString(), dbname.Text.ToString(), userid.Text.ToString(), password.Text.ToString());
             if (errorcode == 0)
             {
                 RegisterOrLogin rl = new RegisterOrLogin();

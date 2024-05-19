@@ -11,6 +11,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.Win32;
 using System.IO;
 using System.Windows.Forms;
+using Data_Access_Layer;
 
 namespace Business_Logic_Layer
 {
@@ -129,9 +130,18 @@ namespace Business_Logic_Layer
 
         public int ConnecttoServer(string servername, string dbname, string userid, string password)
         {
+
             RegistryKey key = Registry.CurrentUser.OpenSubKey(path);
             if (key == null)
             {
+                databaseConnection.server = servername;
+                MessageBox.Show(databaseConnection.server);
+                databaseConnection.database = dbname;
+
+                databaseConnection.userid = userid;
+                databaseConnection.password = password;
+                databaseAccess.OpenConnection();
+
                 string sname = servername.ToString();
                 dbname = dbname.ToString();
                 string dbuser = userid.ToString();
@@ -143,13 +153,7 @@ namespace Business_Logic_Layer
                 regkey.SetValue(dbuservalue, dbuser, RegistryValueKind.String);
                 regkey.SetValue(dbpassvalue, dbpass, RegistryValueKind.String);
                 regkey.Close();
-                databaseConnection.server = servername;
-                databaseConnection.database = dbname;
-                databaseConnection.userid = userid;
-                databaseConnection.password = password;
-
-                MessageBox.Show(databaseConnection.CreateConnectionString());
-                databaseConnection.getConnection();
+                
                 return 0;
             }
             return 1;
