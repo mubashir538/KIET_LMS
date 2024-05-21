@@ -77,36 +77,32 @@ namespace KIET_LMS
         private void S_CurrentCourses_Load(object sender, EventArgs e)
         {
             new TouchScrollVertical(flowLayoutPanel1);
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     User_Controls.Course1 c1 = new User_Controls.Course1();
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("getClasses", dt.Rows[i][0]);
-                    databaseAccess.ExecuteQuery();
-                    DataTable dt2 = databaseAccess.GetDataTable();
-                    databaseAccess.CloseConnection();
-                    string lorT = dt2.Rows[0][1].ToString().Substring(dt2.Rows[0][1].ToString().Length - 4, 3);
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("getAbreviation",dt2.Rows[0][1].ToString());
-                    string abr = databaseAccess.ExecuteValue().ToString();
-                    databaseAccess.CloseConnection();
+                    v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("getClasses", dt.Rows[i][0]);
+                    v.ExecuteQuery();
+                    DataTable dt2 = v.GetDataTable();
+                    v.CloseConnection();
+                    
+                    v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("getAbreviation", dt2.Rows[0][5].ToString());
+                    string abr = v.ExecuteValue().ToString();
+                    v.CloseConnection();
                     c1.course.Text = abr.ToString();
                     c1.id.Text = dt.Rows[i][0].ToString();
-                    if (lorT == "Lab")
-                    {
-                        c1.BackColor = Color.FromArgb(81, 64, 64);
-                    }
-                    else
-                    {
-                        c1.BackColor = generateColor();
-                    }
+                 
                     c1.Click += new EventHandler(OpenForm);
                     flowLayoutPanel1.Controls.Add(c1);
                 }

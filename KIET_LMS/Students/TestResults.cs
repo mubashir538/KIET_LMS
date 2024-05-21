@@ -58,55 +58,65 @@ namespace KIET_LMS
                 panel3.Visible = true;
                 panel4.Visible = true;
                 label2.Visible = true;
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getStudentofCid", textBox1.Text.Trim(), Student.SID);
-                databaseAccess.ExecuteQuery();
-                DataTable dt = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getStudentofCid", int.Parse(textBox1.Text.ToString().Trim()), Student.SID);
+                v.ExecuteQuery();
+                DataTable dt = v.GetDataTable();
+                v.CloseConnection();
                 if (dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Please Enter a Valid Class ID");
                 }
                 else
                 {
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("getAssesmenfromAID", dt.Rows[0][3].ToString());
-                    databaseAccess.ExecuteQuery();
-                    DataTable dt2 = databaseAccess.GetDataTable();
-                    databaseAccess.CloseConnection();
-                    q1obt.Text = nullcheck(dt2.Rows[0][1].ToString());
-                    q2obt.Text = nullcheck(dt2.Rows[0][2].ToString());
-                    q3obt.Text = nullcheck(dt2.Rows[0][5].ToString());
-                    a1obt.Text = nullcheck(dt2.Rows[0][3].ToString());
-                    a2obt.Text = nullcheck(dt2.Rows[0][4].ToString());
-                    pobt.Text = nullcheck(dt2.Rows[0][6].ToString());
-                    fobt.Text = nullcheck(dt2.Rows[0][8].ToString());
-                    mobt.Text = nullcheck(dt2.Rows[0][7].ToString());
-                    q1tot.Text = nullcheck(dt2.Rows[0][10].ToString());
-                    q2tot.Text = nullcheck(dt2.Rows[0][11].ToString());
-                    q3tot.Text = nullcheck(dt2.Rows[0][12].ToString());
-                    a1tot.Text = nullcheck(dt2.Rows[0][13].ToString());
-                    a2tot.Text = nullcheck(dt2.Rows[0][14].ToString());
-                    ptot.Text = nullcheck(dt2.Rows[0][15].ToString());
-                    ftot.Text = nullcheck(dt2.Rows[0][17].ToString());
-                    mtot.Text = nullcheck(dt2.Rows[0][16].ToString());
-                    //Summary
-                    attot.Text = (int.Parse(a1tot.Text) + int.Parse(a2tot.Text)).ToString();
-                    qttot.Text = (int.Parse(q1tot.Text) + int.Parse(q2tot.Text) + int.Parse(q3tot.Text)).ToString();
-                    mttot.Text = mtot.Text;
-                    pttot.Text = pttot.Text;
-                    fttot.Text = fttot.Text;
-                    atobt.Text = (int.Parse(a1obt.Text) + int.Parse(a2obt.Text)).ToString();
-                    qtobt.Text = (int.Parse(q1obt.Text) + int.Parse(q2obt.Text) + int.Parse(q3obt.Text)).ToString();
-                    mtobt.Text = mobt.Text;
-                    ptobt.Text = pobt.Text;
-                    ftobt.Text = fobt.Text;
+                    v = new databaseAccess();
+                    if (dt.Rows[0][3].ToString() != "")
+                    {
+                        v.OpenConnection();
+                        v.LoadSpParameters("getAssesmenfromAID", dt.Rows[0][3].ToString());
+                        v.ExecuteQuery();
+                        DataTable dt2 = v.GetDataTable();
+                        v.CloseConnection();
+                        q1obt.Text = nullcheck(dt2.Rows[0][1].ToString());
+                        q2obt.Text = nullcheck(dt2.Rows[0][2].ToString());
+                        q3obt.Text = nullcheck(dt2.Rows[0][5].ToString());
+                        a1obt.Text = nullcheck(dt2.Rows[0][3].ToString());
+                        a2obt.Text = nullcheck(dt2.Rows[0][4].ToString());
+                        pobt.Text = nullcheck(dt2.Rows[0][6].ToString());
+                        fobt.Text = nullcheck(dt2.Rows[0][8].ToString());
+                        mobt.Text = nullcheck(dt2.Rows[0][7].ToString());
+                        q1tot.Text = nullcheck(dt2.Rows[0][10].ToString());
+                        q2tot.Text = nullcheck(dt2.Rows[0][11].ToString());
+                        q3tot.Text = nullcheck(dt2.Rows[0][12].ToString());
+                        a1tot.Text = nullcheck(dt2.Rows[0][13].ToString());
+                        a2tot.Text = nullcheck(dt2.Rows[0][14].ToString());
+                        ptot.Text = nullcheck(dt2.Rows[0][15].ToString());
+                        ftot.Text = nullcheck(dt2.Rows[0][17].ToString());
+                        mtot.Text = nullcheck(dt2.Rows[0][16].ToString());
+                        //Summary
+                        attot.Text = (int.Parse(a1tot.Text) + int.Parse(a2tot.Text)).ToString();
+                        qttot.Text = (int.Parse(q1tot.Text) + int.Parse(q2tot.Text) + int.Parse(q3tot.Text)).ToString();
+                        mttot.Text = mtot.Text;
+                        pttot.Text = pttot.Text;
+                        fttot.Text = fttot.Text;
+                        atobt.Text = (int.Parse(a1obt.Text) + int.Parse(a2obt.Text)).ToString();
+                        qtobt.Text = (int.Parse(q1obt.Text) + int.Parse(q2obt.Text) + int.Parse(q3obt.Text)).ToString();
+                        mtobt.Text = mobt.Text;
+                        ptobt.Text = pobt.Text;
+                        ftobt.Text = fobt.Text;
 
-                    // total Marks
-                    total.Text = (int.Parse(atobt.Text) + int.Parse(qtobt.Text) + int.Parse(ptobt.Text)
-                        + int.Parse(mtobt.Text) + int.Parse(ftobt.Text)).ToString() + "/100";
+                        // total Marks
+                        total.Text = (int.Parse(atobt.Text) + int.Parse(qtobt.Text) + int.Parse(ptobt.Text)
+                            + int.Parse(mtobt.Text) + int.Parse(ftobt.Text)).ToString() + "/100";
+                    }
+                    else
+                    {
+                        MessageBox.Show("You currently Dont have any Marks");
+                    }
                 }
-                textBox1.Text = "";
+                    textBox1.Text = "";
+                
             }
 
 

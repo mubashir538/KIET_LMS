@@ -16,5 +16,10 @@ namespace KIET_LMS.User_Controls
         {
             InitializeComponent();
         }
+
+        private void abb_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

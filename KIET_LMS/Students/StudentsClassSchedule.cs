@@ -47,11 +47,12 @@ namespace KIET_LMS
         private void StudentsClassSchedule_Load(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -64,11 +65,12 @@ namespace KIET_LMS
 
         private void ShowButtons(String data)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClasses", data);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getClasses", data);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -83,8 +85,14 @@ namespace KIET_LMS
                 label.Font = new Font("Montserrat", 15);
                 label.ForeColor = Color.FromArgb(237, 242, 244);
                 label.BackColor = Color.Transparent;
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getCoursename", dt.Rows[i][5]);
+                v.ExecuteQuery();
+                DataTable dt9 = v.GetDataTable();
+                string namec = dt9.Rows[0][0].ToString();
                 Label label2 = new Label();
-                label2.Text = dt.Rows[i][1].ToString();
+                label2.Text = namec;
                 label2.Location = new Point(120, 15);
                 label2.Name = "c" + i;
                 label2.Font = new Font("Montserrat", 15);
@@ -92,7 +100,7 @@ namespace KIET_LMS
                 label2.ForeColor = Color.FromArgb(237, 242, 244);
                 panel.Controls.Add(label2);
                 Label label3 = new Label();
-                label3.Text = dt.Rows[i][3].ToString();
+                label3.Text = dt.Rows[i][2].ToString();
                 label3.Location = new Point(538, 15);
                 label3.Name = "day" + i;
                 label3.Size = new Size(80, 27);
@@ -125,7 +133,7 @@ namespace KIET_LMS
                 label4.ForeColor = Color.FromArgb(237, 242, 244);
                 panel.Controls.Add(label4);
                 Label label5 = new Label();
-                label5.Text = dt.Rows[i][4].ToString();
+                label5.Text = dt.Rows[i][3].ToString();
                 label5.Location = new Point(756, 15);
                 label5.Name = "room" + i;
                 label5.BringToFront();

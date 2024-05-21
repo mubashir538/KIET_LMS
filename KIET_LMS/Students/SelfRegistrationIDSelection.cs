@@ -38,16 +38,18 @@ namespace KIET_LMS
                         if (panel.Controls[j].BackColor == Color.FromArgb(235, 139, 56))
                         {
                             User_Controls.Id_Creation id = (User_Controls.Id_Creation)panel.Controls[j];
-                            databaseAccess.OpenConnection();
-                            databaseAccess.LoadSpParameters("getTeacherfroName", id.faculty.Text.ToString().Trim());
-                            databaseAccess.ExecuteQuery();
-                            DataTable dt = databaseAccess.GetDataTable();
-                            databaseAccess.CloseConnection();
+                            databaseAccess v = new databaseAccess();
+                            v.OpenConnection();
+                            v.LoadSpParameters("getTeacherfroName", id.faculty.Text.ToString().Trim());
+                            v.ExecuteQuery();
+                            DataTable dt = v.GetDataTable();
+                            v.CloseConnection();
                             int tid = int.Parse(dt.Rows[0][0].ToString());
-                            databaseAccess.OpenConnection();
-                            databaseAccess.LoadSpParameters("insertEnrolled ", id.cid.Text.Trim(), Student.SID.ToString(), tid.ToString(),0,0);
-                            databaseAccess.ExecuteQuery();
-                            databaseAccess.CloseConnection();
+                            v = new databaseAccess();
+                            v.OpenConnection();
+                            v.LoadSpParameters("insertEnrolled ", id.cid.Text.Trim(), Student.SID.ToString(), tid.ToString());
+                            v.ExecuteQuery();
+                            v.CloseConnection();
                         }
                     }
                 }
@@ -70,18 +72,19 @@ namespace KIET_LMS
                 c4.course.Text = clist[i].name;
                 c4.crHour.Text = clist[i].CrHours.ToString();
                 c4.abb.Text = clist[i].abr;
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getclassesfromcoursename",clist[i].name);
-                databaseAccess.ExecuteQuery();
-                DataTable dt = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getclassesfromcoursename",clist[i].name);
+                v.ExecuteQuery();
+                DataTable dt = v.GetDataTable();
+                v.CloseConnection();
                
                 for (int j = 0; j < dt.Rows.Count; j++)
                 {
                     User_Controls.Id_Creation id = new User_Controls.Id_Creation();
                     id.cid.Text = dt.Rows[j][0].ToString();
-                    id.faculty.Text = dt.Rows[j][2].ToString();
-                    id.time.Text = dt.Rows[j][3].ToString().Trim() + "(" + dt.Rows[j][5].ToString().Trim() +")";
+                    id.faculty.Text = dt.Rows[j][1].ToString();
+                    id.time.Text = dt.Rows[j][4].ToString().Trim();
                     id.Location = new Point(328, y);
                     id.Name = c4.Name + j;
                     id.Click += new EventHandler(IdSelected);

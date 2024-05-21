@@ -34,11 +34,12 @@ namespace KIET_LMS
 
         private void IdCreation_pm_Load(object sender, EventArgs e)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getCourseNames");
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("getCourseNames");
+            d.ExecuteQuery();
+            DataTable dt = d.GetDataTable();
+            d.CloseConnection();
 
             int btns = dt.Rows.Count;
             int x = 0;
@@ -68,12 +69,12 @@ namespace KIET_LMS
 
             }
             // For Faculty
-
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getAllTeachers");
-            databaseAccess.ExecuteQuery();
-            DataTable dt1 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("getAllTeachers");
+            d.ExecuteQuery();
+            DataTable dt1 = d.GetDataTable();
+            d.CloseConnection();
 
             int btns1 = dt1.Rows.Count;
             y = 0;
@@ -315,12 +316,13 @@ namespace KIET_LMS
         {
             if (course && faculty && day && slot && room)
             {
-                databaseAccess.OpenConnection();
+                databaseAccess d = new databaseAccess();
+                d.OpenConnection();
                 int courseid = int.Parse(MyCourse.Text.ToString().Trim().Split("-")[0]);
-                databaseAccess.LoadSpParameters("inserttoClasses",courseid, MyFaculty.Text.ToString().Trim(), MyDay.Text.ToString().Trim(),
+                d.LoadSpParameters("inserttoClasses",courseid, MyFaculty.Text.ToString().Trim(), MyDay.Text.ToString().Trim(),
                     MyRoom.Text.ToString().Trim(), MySlot.Text.ToString().Trim());
-                databaseAccess.ExecuteQuery();
-                databaseAccess.CloseConnection();
+                d.ExecuteQuery();
+                d.CloseConnection();
                 MyMessageBox.Show("ID Created Successfully!");
             }
             else

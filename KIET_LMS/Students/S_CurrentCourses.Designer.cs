@@ -70,7 +70,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 66);
             panel2.Name = "panel2";
-            panel2.Size = new Size(879, 571);
+            panel2.Size = new Size(879, 646);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(879, 637);
+            ClientSize = new Size(879, 712);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

@@ -28,11 +28,12 @@ namespace KIET_LMS
         private void ShowButtons(String data)
         {
             flowLayoutPanel1.Controls.Clear();
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getclassesfromday",data);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("getclassesfromday",data);
+            d.ExecuteQuery();
+            DataTable dt = d.GetDataTable();
+            d.CloseConnection();
             
             for (int i = 0; i < dt.Rows.Count; i++)
             {

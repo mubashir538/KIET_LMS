@@ -39,11 +39,12 @@ namespace KIET_LMS
 
         private void CheckAttendance()
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getEnrolledfromSID",Student.SID);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getEnrolledfromSID",Student.SID);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 double totaldays = 0;
@@ -55,12 +56,17 @@ namespace KIET_LMS
                     presents += int.Parse(dt.Rows[i][4].ToString());
                 }
 
-                double points = presents / totaldays;
-                attendance = points * 100;
+                if (totaldays == 0)
+                {
+                    attendance = 0;
+                }
+                else
+                {
+                    double points = (double)presents / (double)totaldays;
+                    attendance = points * 100;
+                }
             }
-            {
-
-            }
+      
         }
 
         private void CheckBestMarks()
@@ -68,22 +74,24 @@ namespace KIET_LMS
             double max = 0;
             string course = "";
             double obtained = 0;
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     if (dt.Rows[i][3].ToString() != "")
                     {
-                        databaseAccess.OpenConnection();
-                        databaseAccess.LoadSpParameters("getAssesmenfromAID", dt.Rows[i][3].ToString());
-                        databaseAccess.ExecuteQuery();
-                        DataTable dt2 = databaseAccess.GetDataTable();
-                        databaseAccess.CloseConnection();
+                        v = new databaseAccess();
+                        v.OpenConnection();
+                        v.LoadSpParameters("getAssesmenfromAID", dt.Rows[i][3].ToString());
+                        v.ExecuteQuery();
+                        DataTable dt2 = v.GetDataTable();
+                        v.CloseConnection();
                         if (dt2.Rows.Count != 0)
                         {
                             double total = checknull(dt2.Rows[0][10].ToString()) +
@@ -111,15 +119,18 @@ namespace KIET_LMS
                             {
                                 max = per;
                                 obtained = obt;
-                                databaseAccess.OpenConnection();
-                                databaseAccess.LoadSpParameters("getClasses", dt2.Rows[0][19].ToString());
-                                databaseAccess.ExecuteQuery();
-                                DataTable dt3 = databaseAccess.GetDataTable();
-                                databaseAccess.CloseConnection();
-                                databaseAccess.OpenConnection();
-                                databaseAccess.LoadSpParameters("getAbreviation", dt3.Rows[0][1].ToString());
-                                string abr = databaseAccess.ExecuteValue().ToString();
-                                databaseAccess.CloseConnection();
+                                v = new databaseAccess();
+                                v.OpenConnection();
+                                v.LoadSpParameters("getClasses", dt2.Rows[0][19].ToString());
+                                v.ExecuteQuery();
+                                DataTable dt3 = v.GetDataTable();
+                                v.CloseConnection();
+
+                                v = new databaseAccess();
+                                v.OpenConnection();
+                                v.LoadSpParameters("getAbreviation", dt3.Rows[0][1].ToString());
+                                string abr = v.ExecuteValue().ToString();
+                                v.CloseConnection();
                                 course = abr.ToString();
                             }
                         }
@@ -133,11 +144,12 @@ namespace KIET_LMS
 
         private void CheckProgress()
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getEnrolledfromSID", Student.SID);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             double selectedCourses = dt.Rows.Count;
             double points = selectedCourses / 5.0;
             double per = points * 100;

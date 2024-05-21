@@ -38,21 +38,23 @@ namespace KIET_LMS
 
         private void CoursePageStudent_Load(object sender, EventArgs e)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClasses",cid);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getClasses",cid);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             day.Text = dt.Rows[0][3].ToString();
             room.Text = dt.Rows[0][4].ToString();
             slot.Text = dt.Rows[0][5].ToString();
             tname.Text = dt.Rows[0][2].ToString();
 
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getTeacherfroName",dt.Rows[0][2].ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt2 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getTeacherfroName",dt.Rows[0][2].ToString());
+            v.ExecuteQuery();
+            DataTable dt2 = v.GetDataTable();
+            v.CloseConnection();
             tmail.Text = dt2.Rows[0][6].ToString();
             tpost.Text = dt2.Rows[0][3].ToString();
             courseAbr.Text = name;

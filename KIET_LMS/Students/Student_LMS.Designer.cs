@@ -63,7 +63,7 @@
             panel1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(315, 702);
+            panel1.Size = new Size(315, 979);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -237,7 +237,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(315, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(977, 45);
+            panel2.Size = new Size(1235, 45);
             panel2.TabIndex = 8;
             // 
             // button1
@@ -267,14 +267,14 @@
             show.Dock = DockStyle.Fill;
             show.Location = new Point(315, 45);
             show.Name = "show";
-            show.Size = new Size(977, 657);
+            show.Size = new Size(1235, 934);
             show.TabIndex = 9;
             // 
             // Student_LMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1292, 702);
+            ClientSize = new Size(1550, 979);
             Controls.Add(show);
             Controls.Add(panel2);
             Controls.Add(panel1);

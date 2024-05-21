@@ -9,23 +9,24 @@ using KIET_LMS;
 
 namespace Data_Access_Layer
 {
-    public static class databaseAccess
+    public class databaseAccess
     {
         private static System.Collections.Hashtable SqlparamCache = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
-        private static SqlConnection Connection = new SqlConnection();
-
-        private static SqlCommand DbCommand = new SqlCommand();
-        private static SqlDataAdapter DtAdapter = new SqlDataAdapter();
-        private static DataSet SqlDataSet = new DataSet();
-        private static DataTable SqlTable = new DataTable();
+        private SqlConnection Connection = new SqlConnection();
 
 
-        public static void UnLoadSpParameters()
+        private SqlCommand DbCommand = new SqlCommand();
+        private SqlDataAdapter DtAdapter = new SqlDataAdapter();
+        private DataSet SqlDataSet = new DataSet();
+        private DataTable SqlTable = new System.Data.DataTable();
+
+
+        public void UnLoadSpParameters()
         {
             DbCommand.Parameters.Clear();
         }
 
-        public static void LoadSpParameters(string SpName, params object[] ParaValues)
+        public void LoadSpParameters(string SpName, params object[] ParaValues)
         {
             SqlParameter[] TheParameters = (SqlParameter[])SqlparamCache[SpName];
             DbCommand.Parameters.Clear();
@@ -57,7 +58,7 @@ namespace Data_Access_Layer
 
         }
 
-        private static void MoveSqlParameters(object[] Paras)
+        private void MoveSqlParameters(object[] Paras)
         {
             short ic;
             SqlParameter sqlPara;
@@ -72,12 +73,12 @@ namespace Data_Access_Layer
             }
         }
 
-        public static SqlParameter Parameters(int P)
+        public SqlParameter Parameters(int P)
         {
             return DbCommand.Parameters[P];
         }
 
-        public static bool OpenConnection()
+        public bool OpenConnection()
         {
             DbCommand = new SqlCommand();
             try
@@ -102,7 +103,7 @@ namespace Data_Access_Layer
             }
         }
 
-        public static void CloseConnection()
+        public void CloseConnection()
         {
             if (Connection.State != ConnectionState.Closed)
             {
@@ -114,23 +115,23 @@ namespace Data_Access_Layer
             }
         }
 
-        public static SqlDataReader GetDataReader()
+        public SqlDataReader GetDataReader()
         {
             return DbCommand.ExecuteReader();
 
         }
 
-        public static int ExecuteQuery()
+        public int ExecuteQuery()
         {
             return DbCommand.ExecuteNonQuery();
         }
 
-        public static object ExecuteValue()
+        public object ExecuteValue()
         {
             return DbCommand.ExecuteScalar();
         }
 
-        public static object ExecuteValue(string SQLStatement)
+        public object ExecuteValue(string SQLStatement)
         {
             DbCommand.CommandType = CommandType.Text;
             DbCommand.CommandText = SQLStatement;
@@ -138,20 +139,25 @@ namespace Data_Access_Layer
         }
 
 
-        public static string ReturnValue(string _PName)
+        public string ReturnValue(string _PName)
         {
             DbCommand.ExecuteNonQuery();
             return (string)DbCommand.Parameters[_PName].Value.ToString();
 
         }
 
-        public static DataTable GetDataTable()
+        public DataTable GetDataTable()
         {
             DtAdapter.SelectCommand = DbCommand;
             DtAdapter.Fill(SqlTable);
             return SqlTable;
         }
 
-      
+        public SqlConnection ConnectionObject
+        {
+            get { return this.Connection; }
+        }
+
+
     }
 }

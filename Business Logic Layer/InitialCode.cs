@@ -24,27 +24,28 @@ namespace Business_Logic_Layer
         string dbpassvalue = "DatabasePassword";
         public int SaveToDb()
         {
-
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("checkemail",Student.email);
-            databaseAccess.ExecuteQuery();
-            DataTable dt1 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("checkemail",Student.email);
+            v.ExecuteQuery();
+            DataTable dt1 = v.GetDataTable();
+            v.CloseConnection();
 
             if (dt1.Rows.Count == 0)
             {
-
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("addStudent", Student.name, Student.email, Student.age, Student.DegreeProgram, Student.CNIC, Student.cellNo,
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("addStudent", Student.name, Student.email, Student.age, Student.DegreeProgram, Student.CNIC, Student.cellNo,
                     Student.gender, Student.Password, Student.crHourLimit);
-                databaseAccess.ExecuteQuery();
-                databaseAccess.CloseConnection();
+                v.ExecuteQuery();
+                v.CloseConnection();
 
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("checkemail", Student.email);
-                databaseAccess.ExecuteQuery();
-                DataTable dt2 = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("checkemail", Student.email);
+                v.ExecuteQuery();
+                DataTable dt2 = v.GetDataTable();
+                v.CloseConnection();
 
                 Student.SID = int.Parse(dt2.Rows[0][0].ToString());
 
@@ -115,11 +116,12 @@ namespace Business_Logic_Layer
             }
             else
             {
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("loginTeacher", id,pass);
-                databaseAccess.ExecuteQuery();
-                DataTable dt = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("loginTeacher", id,pass);
+                v.ExecuteQuery();
+                DataTable dt = v.GetDataTable();
+                v.CloseConnection();
                 if (dt.Rows.Count != 0)
                 {
                     Teacher.ID = int.Parse(dt.Rows[0][0].ToString());
@@ -153,8 +155,9 @@ namespace Business_Logic_Layer
 
                 databaseConnection.userid = userid;
                 databaseConnection.password = password;
-                databaseAccess.OpenConnection();
-                databaseAccess.CloseConnection();
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.CloseConnection();
 
                 string sname = servername.ToString();
                 dbname = dbname.ToString();

@@ -25,28 +25,31 @@ namespace KIET_LMS
         {
             new TouchScrollVertical(flowLayoutPanel1);
             clist = new List<Courses>();
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getCourseNames");
-            databaseAccess.ExecuteQuery();
-            DataTable course = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClassIDs");
-            databaseAccess.ExecuteQuery();
-            DataTable classes = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getCourseNames");
+            v.ExecuteQuery();
+            DataTable course = v.GetDataTable();
+            v.CloseConnection();
+            v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getClassIDs");
+            v.ExecuteQuery();
+            DataTable classes = v.GetDataTable();
+            v.CloseConnection();
             for (int i = 0; i < course.Rows.Count; i++)
             {
                 bool flag = true;
                 for (int j = 0; j < classes.Rows.Count; j++)
                 {
-                    if (course.Rows[i][0].ToString() == classes.Rows[j][1].ToString())
+                    if (course.Rows[i][0].ToString() == classes.Rows[j][5].ToString())
                     {
-                        databaseAccess.OpenConnection();
-                        databaseAccess.LoadSpParameters("getEnrolledfromSID", Student.SID);
-                        databaseAccess.ExecuteQuery();
-                        DataTable dt3 = databaseAccess.GetDataTable();
-                        databaseAccess.CloseConnection();
+                        v = new databaseAccess();
+                        v.OpenConnection();
+                        v.LoadSpParameters("getEnrolledfromSID", Student.SID);
+                        v.ExecuteQuery();
+                        DataTable dt3 = v.GetDataTable();
+                        v.CloseConnection();
 
                         for (int k = 0; k < dt3.Rows.Count; k++)
                         {
@@ -71,9 +74,9 @@ namespace KIET_LMS
                                 }
 
                             }
-                            c.abb.Text = course.Rows[i][3].ToString();
-                            c.course.Text = course.Rows[i][0].ToString();
-                            c.crHour.Text = course.Rows[i][1].ToString();
+                            c.abb.Text = course.Rows[i][4].ToString();
+                            c.course.Text = course.Rows[i][1].ToString();
+                            c.crHour.Text = course.Rows[i][2].ToString();
                             c.Click += new EventHandler(this.CourseSelected);
 
                             flowLayoutPanel1.Controls.Add(c);

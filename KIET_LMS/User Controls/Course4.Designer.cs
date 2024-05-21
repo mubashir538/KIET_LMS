@@ -28,100 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.abb = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.course = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.crHour = new System.Windows.Forms.Label();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
+            panel3 = new Panel();
+            abb = new Label();
+            panel1 = new Panel();
+            course = new Label();
+            panel2 = new Panel();
+            crHour = new Label();
+            panel3.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.abb);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(5, 5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(273, 186);
-            this.panel3.TabIndex = 3;
+            panel3.Controls.Add(abb);
+            panel3.Controls.Add(panel1);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(5, 5);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(273, 186);
+            panel3.TabIndex = 3;
             // 
             // abb
             // 
-            this.abb.AutoSize = true;
-            this.abb.Font = new System.Drawing.Font("Montserrat ExtraBold", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.abb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.abb.Location = new System.Drawing.Point(80, 23);
-            this.abb.Name = "abb";
-            this.abb.Size = new System.Drawing.Size(140, 65);
-            this.abb.TabIndex = 4;
-            this.abb.Text = "DCN";
+            abb.AutoSize = true;
+            abb.Font = new Font("Montserrat ExtraBold", 35F, FontStyle.Bold, GraphicsUnit.Point);
+            abb.ForeColor = Color.FromArgb(237, 242, 244);
+            abb.Location = new Point(80, 23);
+            abb.Name = "abb";
+            abb.Size = new Size(140, 65);
+            abb.TabIndex = 4;
+            abb.Text = "DCN";
+            abb.Click += abb_Click;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(97)))), ((int)(((byte)(164)))));
-            this.panel1.Controls.Add(this.course);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 100);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 86);
-            this.panel1.TabIndex = 3;
+            panel1.BackColor = Color.FromArgb(61, 97, 164);
+            panel1.Controls.Add(course);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 100);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(273, 86);
+            panel1.TabIndex = 3;
             // 
             // course
             // 
-            this.course.AutoSize = true;
-            this.course.Font = new System.Drawing.Font("Montserrat Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.course.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.course.Location = new System.Drawing.Point(8, 14);
-            this.course.MaximumSize = new System.Drawing.Size(276, 0);
-            this.course.Name = "course";
-            this.course.Size = new System.Drawing.Size(262, 52);
-            this.course.TabIndex = 0;
-            this.course.Text = "DataCommunication and Networking";
+            course.AutoSize = true;
+            course.Font = new Font("Montserrat Light", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            course.ForeColor = Color.FromArgb(237, 242, 244);
+            course.Location = new Point(8, 14);
+            course.MaximumSize = new Size(276, 0);
+            course.Name = "course";
+            course.Size = new Size(262, 52);
+            course.TabIndex = 0;
+            course.Text = "DataCommunication and Networking";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(97)))), ((int)(((byte)(164)))));
-            this.panel2.Controls.Add(this.crHour);
-            this.panel2.Location = new System.Drawing.Point(5, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(61, 41);
-            this.panel2.TabIndex = 5;
+            panel2.BackColor = Color.FromArgb(61, 97, 164);
+            panel2.Controls.Add(crHour);
+            panel2.Location = new Point(5, 5);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(61, 41);
+            panel2.TabIndex = 5;
             // 
             // crHour
             // 
-            this.crHour.AutoSize = true;
-            this.crHour.Font = new System.Drawing.Font("Montserrat Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.crHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.crHour.Location = new System.Drawing.Point(15, 2);
-            this.crHour.MaximumSize = new System.Drawing.Size(276, 0);
-            this.crHour.Name = "crHour";
-            this.crHour.Size = new System.Drawing.Size(30, 33);
-            this.crHour.TabIndex = 1;
-            this.crHour.Text = "3";
+            crHour.AutoSize = true;
+            crHour.Font = new Font("Montserrat Medium", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            crHour.ForeColor = Color.FromArgb(237, 242, 244);
+            crHour.Location = new Point(15, 2);
+            crHour.MaximumSize = new Size(276, 0);
+            crHour.Name = "crHour";
+            crHour.Size = new Size(30, 33);
+            crHour.TabIndex = 1;
+            crHour.Text = "3";
             // 
             // Course4
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(10);
-            this.Name = "Course4";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(283, 196);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(62, 67, 88);
+            Controls.Add(panel2);
+            Controls.Add(panel3);
+            Margin = new Padding(10);
+            Name = "Course4";
+            Padding = new Padding(5);
+            Size = new Size(283, 196);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

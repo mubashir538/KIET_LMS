@@ -30,27 +30,30 @@ namespace KIET_LMS
             if (dt.Rows.Count != 0)
             {
                 flowLayoutPanel1.Controls.Clear();
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getEnrolledfromSID", dt.Rows[0][0].ToString());
-                databaseAccess.ExecuteQuery();
-                DataTable d = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getEnrolledfromSID", dt.Rows[0][0].ToString());
+                v.ExecuteQuery();
+                DataTable d = v.GetDataTable();
+                v.CloseConnection();
                 if (d.Rows.Count != 0)
                 {
                     for (int i = 0; i < d.Rows.Count; i++)
                     {
                         User_Controls.Course_3 c1 = new User_Controls.Course_3();
-                        databaseAccess.OpenConnection();
-                        databaseAccess.LoadSpParameters("getClasses", d.Rows[i][0]);
-                        databaseAccess.ExecuteQuery();
-                        DataTable dt2 = databaseAccess.GetDataTable();
-                        databaseAccess.CloseConnection();
+                        v = new databaseAccess();
+                        v.OpenConnection();
+                        v.LoadSpParameters("getClasses", d.Rows[i][0]);
+                        v.ExecuteQuery();
+                        DataTable dt2 = v.GetDataTable();
+                        v.CloseConnection();
        
                         string lorT = dt2.Rows[0][1].ToString().Substring(dt2.Rows[0][1].ToString().Length - 4, 3);
-                        databaseAccess.OpenConnection();
-                        databaseAccess.LoadSpParameters("getAbreviation",dt2.Rows[0][1].ToString());
-                        string abr = databaseAccess.ExecuteValue().ToString();
-                        databaseAccess.CloseConnection();
+                        v = new databaseAccess();
+                        v.OpenConnection();
+                        v.LoadSpParameters("getAbreviation",dt2.Rows[0][1].ToString());
+                        string abr = v.ExecuteValue().ToString();
+                        v.CloseConnection();
                         c1.course.Text = abr.ToString();
                         c1.id.Text = d.Rows[i][0].ToString();
                         if (lorT == "Lab")
@@ -99,12 +102,12 @@ namespace KIET_LMS
         {
             if (e.KeyCode == Keys.Enter)
             {
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getStudentofID", StudentID.Text.ToString());
-                databaseAccess.ExecuteQuery();
-                DataTable dt = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
-                string query = String.Format("select * from Std where ID={0}");
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getStudentofID", StudentID.Text.ToString());
+                v.ExecuteQuery();
+                DataTable dt = v.GetDataTable();
+                v.CloseConnection();
                 sid = int.Parse(StudentID.Text);
                 if (dt.Rows.Count == 0)
                 {
@@ -134,32 +137,34 @@ namespace KIET_LMS
         {
             User_Controls.Course_3 c3 = (User_Controls.Course_3)sender;
             string cid = c3.id.Text;
-
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getStudentofCid", cid, sid.ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getStudentofCid", cid, sid.ToString());
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
 
             if (dt.Rows[0][3].ToString() != "")
             {
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("deleteAssesment", dt.Rows[0][3].ToString());
-                databaseAccess.ExecuteQuery();
-                databaseAccess.CloseConnection();
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("deleteAssesment", dt.Rows[0][3].ToString());
+                v.ExecuteQuery();
+                v.CloseConnection();
             }
 
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("deleteEnrollment ", cid, sid.ToString());
-            databaseAccess.ExecuteQuery();
-            databaseAccess.CloseConnection();
+            v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("deleteEnrollment ", cid, sid.ToString());
+            v.ExecuteQuery();
+            v.CloseConnection();
             MyMessageBox.Show("Course Dropped Successfully");
 
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getStudentofID  ", sid);
-            databaseAccess.ExecuteQuery();
-            DataTable dt4 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            v.OpenConnection();
+            v.LoadSpParameters("getStudentofID  ", sid);
+            v.ExecuteQuery();
+            DataTable dt4 = v.GetDataTable();
+            v.CloseConnection();
             LoadCourses(dt4);
         }
     }

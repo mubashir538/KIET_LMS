@@ -28,20 +28,22 @@ namespace KIET_LMS
         private void StudentInfoTeacher_Load(object sender, EventArgs e)
         {
             new TouchScrollVertical(flowLayoutPanel1);
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("loadAttendance",cid.ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("loadAttendance",cid.ToString());
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string sid = dt.Rows[i][1].ToString();
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getStudentofID", sid);
-                databaseAccess.ExecuteQuery();
-                DataTable dt1 = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getStudentofID", sid);
+                v.ExecuteQuery();
+                DataTable dt1 = v.GetDataTable();
+                v.CloseConnection();
                 User_Controls.Table1 t1 = new User_Controls.Table1();
                 t1.Sno.Text = (i + 1) + ".";
                 t1.name.Text = dt1.Rows[0][1].ToString();

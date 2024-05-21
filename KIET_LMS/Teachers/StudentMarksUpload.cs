@@ -104,11 +104,12 @@ namespace KIET_LMS
         {
             flowLayoutPanel1.Controls.Clear();
             string assesmentTotal = "";
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getAssesmenofID", cid);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getAssesmenofID", cid);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             if (dt.Rows.Count != 0)
             {
                 alreadyExists = true;
@@ -154,18 +155,20 @@ namespace KIET_LMS
             {
                 alreadyExists = false;
 
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("loadAttendance", cid.ToString());
-                databaseAccess.ExecuteQuery();
-                DataTable dt3 = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("loadAttendance", cid.ToString());
+                v.ExecuteQuery();
+                DataTable dt3 = v.GetDataTable();
+                v.CloseConnection();
                 for (int i = 0; i < dt3.Rows.Count; i++)
                 {
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("getStudentofID", dt3.Rows[i][1].ToString());
-                    databaseAccess.ExecuteQuery();
-                    DataTable dt2 = databaseAccess.GetDataTable();
-                    databaseAccess.CloseConnection();
+                    v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("getStudentofID", dt3.Rows[i][1].ToString());
+                    v.ExecuteQuery();
+                    DataTable dt2 = v.GetDataTable();
+                    v.CloseConnection();
 
                     User_Controls.tableMarks tm = new User_Controls.tableMarks();
                     tm.Sno.Text = (i + 1) + ".";
@@ -181,11 +184,12 @@ namespace KIET_LMS
             assesmentTotal = dt.Rows[0][a1].ToString();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getStudentofID", dt.Rows[i][20].ToString());
-                databaseAccess.ExecuteQuery();
-                DataTable dt2 = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                databaseAccess v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getStudentofID", dt.Rows[i][20].ToString());
+                v.ExecuteQuery();
+                DataTable dt2 = v.GetDataTable();
+                v.CloseConnection();
                 User_Controls.tableMarks tm = new User_Controls.tableMarks();
                 tm.Sno.Text = (i + 1) + ".";
                 tm.name.Text = dt2.Rows[0][1].ToString();
@@ -225,31 +229,34 @@ namespace KIET_LMS
                 if (alreadyExists)
                 {
                     // Update
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("updateAssesment", colName, stmarks, totalColName, totalMarks, cid, tm.sid.Text);
-                    databaseAccess.ExecuteQuery();
-                    databaseAccess.CloseConnection();
+                    databaseAccess v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("updateAssesment", colName, stmarks, totalColName, totalMarks, cid, tm.sid.Text);
+                    v.ExecuteQuery();
+                    v.CloseConnection();
                 }
                 else 
                 {
                     // Insert
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("insertAssesment", colName, totalColName, stmarks, cid, tm.sid.Text, totalMarks);
-                    databaseAccess.ExecuteQuery();
-                    databaseAccess.CloseConnection();
+                    databaseAccess v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("insertAssesment", colName, totalColName, stmarks, cid, tm.sid.Text, totalMarks);
+                    v.ExecuteQuery();
+                    v.CloseConnection();
 
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("getAssesmenofcidandsid", cid, tm.sid.Text);
-                    databaseAccess.ExecuteQuery();
-                    DataTable dt = databaseAccess.GetDataTable();
-                    databaseAccess.CloseConnection();
+                    v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("getAssesmenofcidandsid", cid, tm.sid.Text);
+                    v.ExecuteQuery();
+                    DataTable dt = v.GetDataTable();
+                    v.CloseConnection();
                     string aid = dt.Rows[0][0].ToString();
 
-
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("updateEnrolled",aid,cid,tm.sid.Text);
-                    databaseAccess.ExecuteQuery();
-                    databaseAccess.CloseConnection();
+                    v = new databaseAccess();
+                    v.OpenConnection();
+                    v.LoadSpParameters("updateEnrolled",aid,cid,tm.sid.Text);
+                    v.ExecuteQuery();
+                    v.CloseConnection();
                 }
             }
             alreadyExists = true;

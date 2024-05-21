@@ -34,17 +34,18 @@ namespace KIET_LMS
         private void CourseLoad()
         {
             flowLayoutPanel1.Controls.Clear();
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClassIDs");
-            databaseAccess.ExecuteQuery();
-            DataTable dt2 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("getClassIDs");
+            d.ExecuteQuery();
+            DataTable dt2 = d.GetDataTable();
+            d.CloseConnection();
 
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getEnrolledfromSID",sid);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            d.OpenConnection();
+            d.LoadSpParameters("getEnrolledfromSID",sid);
+            d.ExecuteQuery();
+            DataTable dt = d.GetDataTable();
+            d.CloseConnection();
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
                 if (dt.Rows.Count != 0)
@@ -55,10 +56,11 @@ namespace KIET_LMS
                         {
                             User_Controls.Course2 c = new User_Controls.Course2();
                             c.id.Text = dt2.Rows[i][0].ToString();
-                            databaseAccess.OpenConnection();
-                            databaseAccess.LoadSpParameters("getAbreviation", dt2.Rows[i][1].ToString());
-                            string abr = databaseAccess.ExecuteValue().ToString();
-                            databaseAccess.CloseConnection();
+                            d = new databaseAccess();
+                            d.OpenConnection();
+                            d.LoadSpParameters("getAbreviation", dt2.Rows[i][1].ToString());
+                            string abr = d.ExecuteValue().ToString();
+                            d.CloseConnection();
                             c.course.Text = abr.ToString();
                             c.Click += new EventHandler(CourseSelected);
                             flowLayoutPanel1.Controls.Add(c);
@@ -70,10 +72,11 @@ namespace KIET_LMS
                 {
                     User_Controls.Course2 c = new User_Controls.Course2();
                     c.id.Text = dt2.Rows[i][0].ToString();
-                    databaseAccess.OpenConnection();
-                    databaseAccess.LoadSpParameters("getAbreviation", dt2.Rows[i][1].ToString());
-                    string abr = databaseAccess.ExecuteValue().ToString();
-                    databaseAccess.CloseConnection();
+                    d = new databaseAccess();
+                    d.OpenConnection();
+                    d.LoadSpParameters("getAbreviation", dt2.Rows[i][1].ToString());
+                    string abr = d.ExecuteValue().ToString();
+                    d.CloseConnection();
                     c.course.Text = abr.ToString();
                     c.Click += new EventHandler(CourseSelected);
                     flowLayoutPanel1.Controls.Add(c);
@@ -85,22 +88,25 @@ namespace KIET_LMS
         private void CourseSelected(object sender, EventArgs e)
         {
             User_Controls.Course2 c = (User_Controls.Course2)sender;
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClasses", c.id.Text);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("getClasses", c.id.Text);
+            d.ExecuteQuery();
+            DataTable dt = d.GetDataTable();
+            d.CloseConnection();
+            
+            d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("getTeacherfroName", dt.Rows[0][2].ToString());
+            d.ExecuteQuery();
+            DataTable dt2 = d.GetDataTable();
+            d.CloseConnection();
 
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getTeacherfroName", dt.Rows[0][2].ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt2 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
-
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("insertEnrolled", c.id.Text, sid, dt2.Rows[0][0].ToString(), 0, 0);
-            databaseAccess.ExecuteQuery();
-            databaseAccess.CloseConnection();
+            d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("insertEnrolled", c.id.Text, sid, dt2.Rows[0][0].ToString(), 0, 0);
+            d.ExecuteQuery();
+            d.CloseConnection();
 
             MyMessageBox.Show("Course ID Registered Successfully");
             CourseLoad();

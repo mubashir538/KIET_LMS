@@ -40,11 +40,13 @@ namespace KIET_LMS
 
         private void Login_Click(object sender, EventArgs e)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("loginStudent", Email.Text.ToString(), Password.Text.ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess d = new databaseAccess();
+            d.OpenConnection();
+            d.LoadSpParameters("loginStudent", Email.Text.ToString(), Password.Text.ToString());
+            d.ExecuteQuery();
+            DataTable dt = d.GetDataTable();
+            d.UnLoadSpParameters();
+            d.CloseConnection();
 
 
             if (dt.Rows.Count != 0)
@@ -59,7 +61,7 @@ namespace KIET_LMS
                 Student.gender = dt.Rows[0][7].ToString();
                 Student.Password = dt.Rows[0][8].ToString();
                 Student.SID = int.Parse(dt.Rows[0][0].ToString());
-                Student.crHourLimit = int.Parse(dt.Rows[0][16].ToString());
+                Student.crHourLimit = int.Parse(dt.Rows[0][15].ToString());
 
                 Form f = new Student_LMS();
                 f.Show();

@@ -17,39 +17,43 @@ namespace Business_Logic_Layer
         public DataTable LoadAttendance(FlowLayoutPanel flowLayoutPanel,int cid)
         {
             new TouchScrollVertical(flowLayoutPanel);
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("loadAttendance",cid.ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("loadAttendance",cid.ToString());
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
           return dt;
         }
         public DataTable LoadSids(string sid)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getStudentofID", sid);
-            databaseAccess.ExecuteQuery();
-            DataTable dt1 = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getStudentofID", sid);
+            v.ExecuteQuery();
+            DataTable dt1 = v.GetDataTable();
+            v.CloseConnection();
             return dt1;
         }
 
         public void MarkAttendance(int cid,bool pr, List<int> ids)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("loadAttendance", cid.ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("loadAttendance", cid.ToString());
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 int prs, abs;
                 string sid = dt.Rows[i][1].ToString();
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("getStudentofCid", cid.ToString(),sid);
-                databaseAccess.ExecuteQuery();
-                DataTable dt2 = databaseAccess.GetDataTable();
-                databaseAccess.CloseConnection();
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("getStudentofCid", cid.ToString(),sid);
+                v.ExecuteQuery();
+                DataTable dt2 = v.GetDataTable();
+                v.CloseConnection();
                 prs = int.Parse(dt2.Rows[0][4].ToString());
                 abs = int.Parse(dt2.Rows[0][5].ToString());
 
@@ -94,10 +98,11 @@ namespace Business_Logic_Layer
                     }
                 }
 
-                databaseAccess.OpenConnection();
-                databaseAccess.LoadSpParameters("UpdatePresents", prs, abs, sid, cid);
-                databaseAccess.ExecuteQuery();
-                databaseAccess.CloseConnection();
+                v = new databaseAccess();
+                v.OpenConnection();
+                v.LoadSpParameters("UpdatePresents", prs, abs, sid, cid);
+                v.ExecuteQuery();
+                v.CloseConnection();
             }
 
             MyMessageBox.Show("The Attendance has been Marked");
@@ -106,31 +111,34 @@ namespace Business_Logic_Layer
 
         public DataTable getCourseInfo(int cid)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClasses",cid.ToString());
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getClasses",cid.ToString());
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             return dt;
         }
 
         public DataTable getCourses()
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getClassesofFaculty",Teacher.name);
-            databaseAccess.ExecuteQuery();
-            DataTable dt = databaseAccess.GetDataTable();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getClassesofFaculty",Teacher.name);
+            v.ExecuteQuery();
+            DataTable dt = v.GetDataTable();
+            v.CloseConnection();
             return dt;
 
         }
 
         public string getCourseNames(string courseids)
         {
-            databaseAccess.OpenConnection();
-            databaseAccess.LoadSpParameters("getAbreviation", courseids);
-            string abr = databaseAccess.ExecuteValue().ToString();
-            databaseAccess.CloseConnection();
+            databaseAccess v = new databaseAccess();
+            v.OpenConnection();
+            v.LoadSpParameters("getAbreviation", courseids);
+            string abr = v.ExecuteValue().ToString();
+            v.CloseConnection();
             return abr;
         }
         public Color generateColor()
