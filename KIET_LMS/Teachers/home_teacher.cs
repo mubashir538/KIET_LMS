@@ -34,7 +34,7 @@ namespace KIET_LMS
             DataTable dt3 = f.getCourses();
             for (int i = 0; i < dt3.Rows.Count; i++)
             {
-                string abr = f.getCourseNames(dt3.Rows[i][1].ToString());
+                string abr = f.getCourseNames(dt3.Rows[i][5].ToString());
                 User_Controls.Course1 c1 = new User_Controls.Course1();
                 c1.course.Text = abr.ToString();
                 c1.id.Text = dt3.Rows[i][0].ToString();
